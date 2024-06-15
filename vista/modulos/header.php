@@ -1,7 +1,7 @@
 
 <!-- Preloader -->
 <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="" src="vistas/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="" src="vista/dist/img/logo-horizontal.png" alt="Logo-Don-Pedro" height="200" width="200">
 </div>
 
 <!-- Navbar -->
@@ -53,10 +53,20 @@
         </form>
         </div>
     </li>
+
+    <!-- Navbar FULLSCREEN -->
     <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-        <i class="fas fa-expand-arrows-alt"></i>
+            <i class="fas fa-expand-arrows-alt"></i>
         </a>
+    </li>
+    
+    <!-- Navbar USUARIO -->
+    <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#" title="usuario">
+            <i class="fa fa-user"></i>
+        </a>
+
     </li>
     </ul>
 </nav>

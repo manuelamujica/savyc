@@ -1,8 +1,8 @@
 <footer class="main-footer">
 <div class="float-right d-none d-sm-block">
-    <b>Version</b> 3.2.0
+    <p>Version 3.2.0</p>
     </div>
-    <strong>Copyright &copy; 2024 <a href="#" target="_blank">Quesera y Charcutería Don Pedro</a>.</strong> Todos los derechos reservados.
+    <p>Copyright &copy; 2024 <a href="#" target="_blank">Quesera y Charcutería Don Pedro</a>. Todos los derechos reservados.</p>
 </footer>
 
 <!-- Control Sidebar -->

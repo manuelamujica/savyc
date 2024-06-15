@@ -24,7 +24,7 @@
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Página no encontrada.</h3>
             <p>
                 No pudimos encontrar la página que estabas buscando.
-                Sin embargo, puedes <a href="inicio">ir a inicio</a> o buscar en este formulario.
+                Sin embargo, puedes <a href="inicio">ir a inicio.</a>
             </p>
 
         <!-- <form class="search-form">
