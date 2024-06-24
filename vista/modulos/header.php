@@ -21,10 +21,6 @@
         </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
         <a class="dropdown-item" href="#">Manual de usuario</a>
-        <a class="dropdown-item" href="#">Soporte</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Configuración</a>
-        
     </div>
     </li>
     </ul>
@@ -66,7 +62,17 @@
         <a class="nav-link" data-toggle="dropdown" href="#" title="usuario">
             <i class="fa fa-user"></i>
         </a>
-
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        <span class="dropdown-header">Perfil de usuario</span>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Ver perfil
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item">
+            <i class="fas fa-sign-out-alt mr-2"></i> Cerrar sesión
+        </a>
+        </div>
     </li>
     </ul>
 </nav>

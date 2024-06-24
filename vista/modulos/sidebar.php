@@ -44,7 +44,6 @@
                     <a href="ventas" class="nav-link">
                         <i class="nav-icon fa fa-file"></i>
                         <p>Ventas 
-                        <!--<span class="badge badge-info right">2</span>-->
                         </p>
                     </a>
                 </li>
@@ -61,6 +60,39 @@
                         <i class="nav-icon far fa fa-truck"></i>
                         <p>Proveedores</p>
                     </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-cog mr-2"></i>
+                        <p>Configuracion<i class="right fas fa-angle-left"></i></p>
+                        </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="fa fa-usd nav-icon"></i>
+                            <p>Divisas</p>
+                            </a>
+                        </li>
+                    <li class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="fa fa-credit-card nav-icon"></i>
+                            <p>Tipos de pago</p>
+                            </a>
+                    </li>
+                    <li class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="fa fa-plus-square nav-icon"></i>
+                            <p>Unidades de medida</p>
+                            </a>
+                    </li>
+                    <li class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Cambio</p>
+                            </a>
+                    </li>
+                    </ul>
                 </li>
             </ul>
         </nav>

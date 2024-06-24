@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SAVYC</title>
-  <link rel="icon" href="img/logo-icono.png"> <!--Logo del navegador -->
+  <link rel="icon" href="vista/dist/img/logo-icono.png"> <!--Logo del navegador -->
 
 <!-- ==================
 PLUGINGS DE CSS
@@ -19,7 +19,7 @@ PLUGINGS DE CSS
   <link rel="stylesheet" href="vista/dist/css/custom.css">
 
   <!-- =======================
-    PLUGINGS DE JAVASACRIPT 
+    PLUGINGS DE JAVASACRIPT  
 =============================-->
   <!-- jQuery -->
   <script src="vista/plugins/jquery/jquery.min.js"></script>
@@ -27,8 +27,6 @@ PLUGINGS DE CSS
   <script src="vista/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="vista/dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="vista/dist/js/demo.js"></script>
 
 </head>
 
@@ -46,7 +44,8 @@ PLUGINGS DE CSS
   include "modulos/sidebar.php";
 
   if(isset ($_GET["ruta"])){
-    if($_GET["ruta"] == "inicio" || $_GET["ruta"] == "productos" || $_GET["ruta"] == "categorias"){
+    if($_GET["ruta"] == "inicio" || $_GET["ruta"] == "productos" || $_GET["ruta"] == "categorias"
+    || $_GET["ruta"] == "configuracion"){
       include "modulos/". $_GET["ruta"] . ".php";
     } else {
       include "modulos/error.php";

@@ -1,16 +1,25 @@
 <?php
 
-class Conexion{
+require_once "config/config.php";
 
-	public function conectar(){
+class Conexion extends PDO{
+		private $conex;
 
-		$link = new PDO("mysql:host=localhost;dbname=pos",
-			            "root",
-			            "");
+		public function __construct(){
+			$link = "mysql:host=" ._DB_HOST_. ";dbname=" ._DB_NAME_. ";charset=utf8";
 
-		$link->exec("set names utf8");
+			try{
 
-		return $link;
+				$this->conex = new PDO($link, _DB_USER_, _DB_PASS_);
+				$this->conex->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			}
+			catch(PDOException $e){
+				die("Conexión Fallida" . $e->getMessage());
+			}
+		}
+		
+		public function conectar(){
+		return $this->conex;
 
 	}
 
