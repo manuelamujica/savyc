@@ -9,21 +9,20 @@
         </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
                     <li class="breadcrumb-item active">Dashboard</li>
                 </ol>
             </div>
         </div>
-    </div><!-- /.container-fluid -->
+    </div>
     </section>
 
-    <!-- Main content -->
+    <!-- CONTENIDO PRINCIPAL -->
     <section class="content">
-
-    <!-- Default box -->
+    <!-- BOX (CAJA DE TEXTO) -->
     <div class="card">
         <div class="card-header">
-        <h3 class="card-title">Title</h3>
+        <h3 class="card-title">Hola!</h3>
 
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -35,13 +34,8 @@
         </div>
         </div>
         <div class="card-body">
-        Start creating your amazing application!
+        Bienvenidos al Sistema de compra, venta e inventario de productos
         </div>
-        <!-- /.card-body -->
         </div>
-    <!-- /.card -->
-
     </section>
-    <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->

@@ -27,37 +27,34 @@
             </div>
             <div class="card-body">
 
-            <table id="producto" class="table table-bordered table-striped">
+            <table id="categorias" class="table table-bordered table-striped table-hover">
                 <thead>
                         <tr>
+                            <th>Codigo</th>
                             <th>Categoría</th>
                             <th>Acciones</th>
-                        </tr> 
-                    </thead>
-                    <tbody>
-                        
+                        </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    include_once 'controlador/categorias.php';
 
-                    <!-- Aquí deberías cargar dinámicamente las categorías desde la base de datos 
-                    
-                    /*Supongamos que tienes una función en tu modelo para obtener todas las categorías
-                    $categorias = $objCategoria->obtenerCategorias();
-                    foreach ($categorias as $categoria) {
-                        echo "<tr>
-                                <td>{$categoria['nombre']}</td>
-                                <td>
-                                    <div class='btn-group'>
-                                        <button class='btn btn-warning'><i class='fa fa-list-ul'></i></button>
-                                        <button class='btn btn-danger'><i class='fa fa-times'></i></button>
-                                    </div>
-                                </td>
-                            </tr>";
-                    }
-                    */   
-                    -->
-            
-            </div>  
-        </tbody>
-    </table>
+                    foreach ($registro as $datos){
+                        ?>
+                        <tr>
+                            <td> <?php echo $datos["cod_categoria"] ?></td>
+                            <td> <?php echo $datos["nombre"] ?></td>
+                            <td>
+                                <form method="post" action="index.php/?pagina=categorias">
+                                    <button name="modificar" class="btn btn-info btn-sm editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt" title="editar"></i></button>
+                                    <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt" title="eliminar"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                        <?php } ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 <!-- =======================
@@ -79,7 +76,8 @@ MODAL AGREGAR CATEGORÍA
                 <form id="formAgregarCategoria" action="index.php?pagina=categorias" method="post">
                     <div class="form-group">
                         <label for="nombre">Nombre de la categoría</label>
-                        <input type="text" class="form-control" name="nuevaCategoria" required>
+                        <input type="text" class="form-control" name="nombre" required>
+                    </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

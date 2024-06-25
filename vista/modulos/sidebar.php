@@ -32,7 +32,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="clientes" class="nav-link">
+                    <a href="compras" class="nav-link">
                         <i class="nav-icon fa fa-shopping-cart"></i>
                         <p>
                             Compras

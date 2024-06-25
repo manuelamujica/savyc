@@ -31,19 +31,14 @@
                             <label for="remember"> Recuérdame </label>
                         </div>
                     </div>
-                    <!-- /.col -->
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+                        <button type="submit" class="btn btn-primary btn-block" href="index.php">Ingresar</button>
                     </div>
-                    <!-- /.col -->
                 </div>
             </form>
             <p class="mb-1">
-                <a href="forgot-password.html">Olvidé mi contraseña</a>
+                <a href="#">Olvidé mi contraseña</a>
             </p>
         </div>
-        <!-- /.card-body -->
     </div>
-    <!-- /.card -->
 </div>
-<!-- /.login-box -->

@@ -7,7 +7,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
                     <li class="breadcrumb-item active">404 Error</li>
                 </ol>
             </div>
@@ -26,17 +26,6 @@
                 No pudimos encontrar la página que estabas buscando.
                 Sin embargo, puedes <a href="inicio">ir a inicio.</a>
             </p>
-
-        <!-- <form class="search-form">
-            <div class="input-group">
-            <input type="text" name="search" class="form-control" placeholder="Search">
-
-            <div class="input-group-append">
-                <button type="submit" name="submit" class="btn btn-warning"><i class="fas fa-search"></i>
-                </button>
-            </div>
-            </div>
-        </form>-->
         </div>
     </div>
     </section>

@@ -4,18 +4,16 @@ require_once "modelo/categorias.php"; //requiero al modelo
 $objCategoria= new Categoria;
 
 if(isset($_POST["guardar"])){
-    if(!empty($_POST["nuevaCategoria"])){
+    if(!empty($_POST["nombre"])){
         
         #Instanciar los setter
-        $objCategoria->setNombre($_POST["nuevaCategoria"]);
-        
+        $objCategoria->setNombre($_POST["nombre"]);
         $resul=$objCategoria->getcrearCategoria();
 
         if($resul == 1){
-            echo    "<script>
+            /*echo    "<script>
                         alert('Registrado con éxito');
-                        window.location = 'categorias';
-                    </script>";
+                    </script>";*/
         } else {
             echo    "<script>
                         alert('¡La categoría no puede ir vacía o llevar caracteres especiales!');
@@ -28,3 +26,6 @@ if(isset($_POST["guardar"])){
     }
 }
 
+$registro = $objCategoria->Consultar();
+$_GET['ruta'] = 'categorias';
+require_once 'plantilla.php';

@@ -45,7 +45,7 @@ PLUGINGS DE CSS
 
   if(isset ($_GET["ruta"])){
     if($_GET["ruta"] == "inicio" || $_GET["ruta"] == "productos" || $_GET["ruta"] == "categorias"
-    || $_GET["ruta"] == "configuracion"){
+    || $_GET["ruta"] == "clientes"){
       include "modulos/". $_GET["ruta"] . ".php";
     } else {
       include "modulos/error.php";

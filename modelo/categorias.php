@@ -4,6 +4,7 @@ class Categoria extends Conexion{
 
     private $conex;
     private $nombre;
+    #private $status=1;
 
     public function __construct(){
         $this->conex = new Conexion();
@@ -16,6 +17,13 @@ class Categoria extends Conexion{
     }
     public function setNombre($nombre){
         $this->nombre = $nombre;
+    }
+
+    public function getStatus(){
+        return $this->nombre;
+    }
+    public function setStatus($status){
+        $this->nombre = $status;
     }
 
 /*==============================
@@ -38,12 +46,26 @@ REGISTRAR CATEGORIA
         return $r;
 
     }
+
     public function getcrearCategoria(){
         return $this->crearCategoria();
     }
-/*==============================
-REGISTRAR CATEGORIA
-================================*/
 
+/*==============================
+CONSULTAR CATEGORIAS
+================================*/
+    public function Consultar(){
+        $registro = "select * from categorias";
+        $consulta = $this->conex->prepare($registro);
+        $resul = $consulta->execute();
+
+        $datos = $consulta->fetchAll(PDO::FETCH_ASSOC);
+        if($resul){
+            return $datos;
+        }else{
+            return $r=0;
+        }
+
+}
     
 }

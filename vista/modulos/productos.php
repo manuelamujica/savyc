@@ -30,7 +30,6 @@
               <table id="producto" class="table table-bordered table-striped">
                 <thead>
                         <tr>
-                            <th style="width:10px">#</th>
                             <th>Código</th>
                             <th>Nombre</th>
                             <th>Marca</th>
@@ -46,7 +45,6 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>0001</td>
                             <td>Jamón de espalda</td>
                             <td>Purolomo</td>
                             <td>Charcutería</td>
@@ -62,8 +60,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>1</td>
-                            <td>0002</td>
+                            <td>2</td>
                             <td>Queso blanco de res</td>
                             <td></td>
                             <td>Lácteos</td>
@@ -79,8 +76,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>1</td>
-                            <td>0003</td>
+                            <td>3</td>
                             <td>Harina de maíz</td>
                             <td>PAN</td>
                             <td>Víveres</td>
@@ -95,17 +91,10 @@
                                     <button class="btn btn-danger"><i class="fa fa-times"></i></button>
                             </td>
                         </tr>
-            </div>  
-
-        
-        </tbody>
-
-       </table>
-
-      </div>
-
+                    </div>  
+                </tbody>
+            </table>
+        </div>
     </div>
-
-  </section>
-
+</section>
 </div>

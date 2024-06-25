@@ -49,13 +49,12 @@ CSS PARA CUSTOMIZAR LA PLANTILLA
 
 /* BOTONES*/
 .btn-primary {
-    background-color: #E89005 ; /* Color de fondo */
-    border-color: #E89005 ; /* Color del borde */
+    background-color: #db6a00 !important ;
+    border-color: #db6a00 !important; 
 }
-
 .btn-primary:hover {
-    background-color: #Ec7507 ; /* Color de fondo al pasar el ratón */
-    border-color: #Ec7507 ; /* Color del borde al pasar el ratón */
+    background-color: #E89005 !important ;
+    border-color: #E89005 !important; 
 }
 
 /* FOOTER*/
