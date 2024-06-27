@@ -41,7 +41,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="ventas" class="nav-link">
+                    <a href="venta" class="nav-link">
                         <i class="nav-icon fa fa-file"></i>
                         <p>Ventas 
                         </p>
@@ -67,29 +67,36 @@
                         <i class="fas fa-cog mr-2"></i>
                         <p>Configuracion<i class="right fas fa-angle-left"></i></p>
                         </a>
-                    <ul class="nav nav-treeview">
+                        <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                            <i class="fa fa-usd nav-icon"></i>
+                            <a href="divisa" class="nav-link">
+                            <i class="fas fa-dollar-sign nav-icon"></i>
                             <p>Divisas</p>
                             </a>
                         </li>
-                    <li class="nav-item">
-                            <a href="#" class="nav-link">
-                            <i class="fa fa-credit-card nav-icon"></i>
-                            <p>Tipos de pago</p>
-                            </a>
-                    </li>
-                    <li class="nav-item">
-                            <a href="#" class="nav-link">
-                            <i class="fa fa-plus-square nav-icon"></i>
+                        <li class="nav-item">
+                            <a href="unidad" class="nav-link">
+                            <i class="fas fa-balance-scale nav-icon"></i>
                             <p>Unidades de medida</p>
                             </a>
+                        </li>
+                    <li class="nav-item">
+                            <a href="general" class="nav-link">
+                            <i class="fas fa-shopping-basket nav-icon"></i>
+                            <p>Ajuste general</p>
+                            </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                            <a href="roles" class="nav-link">
+                            <i class="fas fa-user-shield nav-icon"></i>
+                            <p>Ajuste de roles</p>
+                            </a>
                     </li>
                     <li class="nav-item">
-                            <a href="#" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Cambio</p>
+                            <a href="tpago" class="nav-link">
+                            <i class="fas fa-money-bill nav-icon"></i>
+                            <p>Tipos de pago</p>
                             </a>
                     </li>
                     </ul>

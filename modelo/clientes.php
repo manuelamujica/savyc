@@ -12,7 +12,7 @@ class Clientes extends Conexion{
 
 public function __construct(){
     $this -> conex = new Conexion();
-    $this -> conex = $this->conex->Conectar();
+    $this -> conex = $this->conex->conectar();
 }
 
 public function getNombre(){
@@ -26,7 +26,7 @@ public function getApellido(){
     return $this->apellido;
 }
 public function setApellido($apellido){
-    $this->nombre=$apellido;
+    $this->apellido=$apellido;
 }
 
 public function getCedula(){
@@ -57,9 +57,14 @@ public function setDireccion($direccion){
 }
 
 
-private function Registrar(){ 
 
-    $registro = "INSERT INTO clientes(nombre,apellido,cedula_rif,telefono,email,direccion) VALUES(:nombre,:apellido, :cedula_rif, :telefono,:email,:direccion)";
+/*==============================
+REGISTRAR CLIENTE
+================================*/
+
+private function registrar(){ 
+
+    $registro = "INSERT INTO clientes(nombre,apellido,cedula_rif,telefono,email,direccion) VALUES(:nombre, :apellido, :cedula_rif, :telefono,:email,:direccion)";
     
     #instanciar el metodo PREPARE no la ejecuta, sino que la inicializa
     $strExec = $this->conex->prepare($registro);
@@ -72,7 +77,7 @@ private function Registrar(){
     $strExec->bindParam(':email', $this->email);
     $strExec->bindParam(':direccion', $this->direccion);
 
-    $resul = $strExec->execute();  
+    $resul = $strExec->execute();
     if($resul){
         $r = 1;
     }else{
@@ -82,10 +87,10 @@ private function Registrar(){
 }
 
 public function getRegistrar(){
-    return $this->Registrar();
+    return $this->registrar();
 }
 
-public function Consultar(){
+public function consultar(){
 
     $registro = "select * from clientes";
     $consulta = $this->conex->prepare($registro);

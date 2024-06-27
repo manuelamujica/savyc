@@ -1,3 +1,5 @@
+<?php require_once 'controlador/clientes.php'; ?>
+
 <div class="content-wrapper">
     <section class="content-header">
     <div class="container-fluid">
@@ -13,7 +15,7 @@
             </div>
         </div>
     </div>
-    </section>
+</section>
 
 <!-- Main content -->
 <section class="content">
@@ -43,8 +45,6 @@
                 </thead>
                 <tbody>
                     <?php
-                    include_once 'controlador/clientes.php';
-
                     foreach ($registro as $datos){
                         ?>
                         <tr>
@@ -56,8 +56,8 @@
                             <td> <?php echo $datos["email"] ?></td>
                             <td> <?php echo $datos["direccion"] ?></td>
                             <td>
-                                <form method="post" action="index.php/?pagina=clientes">
-                                    <button name="modificar" class="btn btn-info btn-sm editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt" title="editar"></i></button><br>
+                                <form method="post" >
+                                    <button name="modificar" class="btn btn-primary btn-sm editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt" title="editar"></i></button>
                                     <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt" title="eliminar"></i></button>
                                 </form>
                             </td>
@@ -84,24 +84,24 @@ MODAL AGREGAR CLIENTES
             </div>
 
             <div class="modal-body">
-                <form id="formAgregarClientes" action="index.php?pagina=clientes" method="post">
+                <form id="formAgregarClientes" method="post">
                     <div class="form-group">
                         <label for="nombre">Nombre:</label>
                         <input type="text" class="form-control" name="nombre" required>
 
-                        <label for="apellido">Apellido</label>
+                        <label for="apellido">Apellido:</label>
                         <input type="text" class="form-control" name="apellido" required>
 
-                        <label for="cedula_rif">Cédula o Rif</label>
+                        <label for="cedula_rif">Cédula o Rif:</label>
                         <input type="text" class="form-control" name="cedula_rif" required>
 
-                        <label for="telefono">Teléfono</label>
-                        <input type="text" class="form-control" name="telefono">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" class="form-control" name="telefono">
 
-                        <label for="email">Email</label>
-                        <input type="text" class="form-control" name="email">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" name="email">
 
-                        <label for="direccion">Direccion</label>
+                        <label for="direccion">Direccion:</label>
                         <textarea class="form-control" name="direccion"></textarea>
                     </div>
                     </div>

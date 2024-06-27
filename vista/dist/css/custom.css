@@ -27,7 +27,7 @@ CSS PARA CUSTOMIZAR LA PLANTILLA
 }
 
 .main-sidebar .nav-link{
-    color: white !important; /* Color del texto de los enlaces */
+    color: white ; /* Color del texto de los enlaces */
 }
 
 .main-sidebar .nav-icon{
@@ -39,12 +39,12 @@ CSS PARA CUSTOMIZAR LA PLANTILLA
 
 /* CONTENIDO*/
 .content-wrapper a{
-    color: #db6a00 !important; 
+    color: #db6a00 ; 
     font-weight: bold;
 }
 
 .content-wrapper a:hover{
-    color: #E89005 !important; 
+    color: #E89005 ; 
 }
 
 /* BOTONES*/

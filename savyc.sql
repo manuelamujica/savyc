@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-06-2024 a las 02:16:22
+-- Tiempo de generación: 27-06-2024 a las 11:11:42
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -70,6 +70,13 @@ CREATE TABLE `categorias` (
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`cod_categoria`, `nombre`, `status`) VALUES
+(1, 'Embutidos', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -87,6 +94,13 @@ CREATE TABLE `clientes` (
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`cod_cliente`, `nombre`, `apellido`, `cedula_rif`, `telefono`, `email`, `direccion`, `status`) VALUES
+(1, 'Pedro', 'Perez', '12345678', '04145555555', 'Pedroperez@gmail.com', 'Av. los horcones', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -103,6 +117,19 @@ CREATE TABLE `compras` (
   `descuento` int(11) DEFAULT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `config_empresa`
+--
+
+CREATE TABLE `config_empresa` (
+  `rif` varchar(15) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `direccion` varchar(100) NOT NULL,
+  `descripcion` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -213,9 +240,16 @@ CREATE TABLE `detalle_ventas` (
 CREATE TABLE `divisas` (
   `cod_divisa` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
-  `simbolo` varchar(2) NOT NULL,
+  `abreviatura` varchar(5) NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `divisas`
+--
+
+INSERT INTO `divisas` (`cod_divisa`, `nombre`, `abreviatura`, `status`) VALUES
+(1, 'Bolivares', 'Bs', 0);
 
 -- --------------------------------------------------------
 
@@ -254,12 +288,19 @@ CREATE TABLE `productos` (
 
 CREATE TABLE `proveedores` (
   `cod_prov` int(11) NOT NULL,
-  `rif` int(13) NOT NULL,
+  `rif` varchar(15) NOT NULL,
   `razon_social` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `direccion` varchar(250) NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `proveedores`
+--
+
+INSERT INTO `proveedores` (`cod_prov`, `rif`, `razon_social`, `email`, `direccion`, `status`) VALUES
+(1, 'J505284797', 'Plumrose', '2313@gmail.com', 'av. libertador', 0);
 
 -- --------------------------------------------------------
 
@@ -288,6 +329,13 @@ CREATE TABLE `tipo_pago` (
   `medio_pago` varchar(50) NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `tipo_pago`
+--
+
+INSERT INTO `tipo_pago` (`cod_tipo_pago`, `medio_pago`, `status`) VALUES
+(1, 'punto de venta', 0);
 
 -- --------------------------------------------------------
 
@@ -323,10 +371,17 @@ CREATE TABLE `tlf_proveedores` (
 CREATE TABLE `unidades_medida` (
   `cod_unidad` int(11) NOT NULL,
   `tipo_medida` char(10) NOT NULL,
-  `presentacion` int(11) DEFAULT NULL,
+  `presentacion` varchar(20) DEFAULT NULL,
   `cantidad_presentacion` float DEFAULT NULL,
   `status` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `unidades_medida`
+--
+
+INSERT INTO `unidades_medida` (`cod_unidad`, `tipo_medida`, `presentacion`, `cantidad_presentacion`, `status`) VALUES
+(1, 'kg', 'pieza', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -402,6 +457,12 @@ ALTER TABLE `clientes`
 ALTER TABLE `compras`
   ADD PRIMARY KEY (`cod_compra`),
   ADD KEY `compras-proveedores` (`cod_prov`);
+
+--
+-- Indices de la tabla `config_empresa`
+--
+ALTER TABLE `config_empresa`
+  ADD PRIMARY KEY (`rif`);
 
 --
 -- Indices de la tabla `descarga`
@@ -546,13 +607,13 @@ ALTER TABLE `carga`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `cod_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cod_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `cod_cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `compras`
@@ -606,7 +667,7 @@ ALTER TABLE `detalle_ventas`
 -- AUTO_INCREMENT de la tabla `divisas`
 --
 ALTER TABLE `divisas`
-  MODIFY `cod_divisa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_divisa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
@@ -624,7 +685,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `cod_prov` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_prov` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `prov_representantes`
@@ -636,7 +697,7 @@ ALTER TABLE `prov_representantes`
 -- AUTO_INCREMENT de la tabla `tipo_pago`
 --
 ALTER TABLE `tipo_pago`
-  MODIFY `cod_tipo_pago` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_tipo_pago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_usuario`
@@ -654,7 +715,7 @@ ALTER TABLE `tlf_proveedores`
 -- AUTO_INCREMENT de la tabla `unidades_medida`
 --
 ALTER TABLE `unidades_medida`
-  MODIFY `cod_unidad` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_unidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

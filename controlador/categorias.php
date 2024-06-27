@@ -11,9 +11,9 @@ if(isset($_POST["guardar"])){
         $resul=$objCategoria->getcrearCategoria();
 
         if($resul == 1){
-            /*echo    "<script>
+            echo    "<script>
                         alert('Registrado con éxito');
-                    </script>";*/
+                    </script>";
         } else {
             echo    "<script>
                         alert('¡La categoría no puede ir vacía o llevar caracteres especiales!');

@@ -1,3 +1,7 @@
+<?php 
+require_once "controlador/categorias.php";
+?>
+
 <div class="content-wrapper">
     <section class="content-header">
     <div class="container-fluid">
@@ -37,15 +41,13 @@
                 </thead>
                 <tbody>
                     <?php
-                    include_once 'controlador/categorias.php';
-
                     foreach ($registro as $datos){
                         ?>
                         <tr>
                             <td> <?php echo $datos["cod_categoria"] ?></td>
                             <td> <?php echo $datos["nombre"] ?></td>
                             <td>
-                                <form method="post" action="index.php/?pagina=categorias">
+                                <form method="post">
                                     <button name="modificar" class="btn btn-info btn-sm editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt" title="editar"></i></button>
                                     <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt" title="eliminar"></i></button>
                                 </form>
@@ -73,7 +75,7 @@ MODAL AGREGAR CATEGORÍA
             </div>
 
             <div class="modal-body">
-                <form id="formAgregarCategoria" action="index.php?pagina=categorias" method="post">
+                <form id="formAgregarCategoria" method="post">
                     <div class="form-group">
                         <label for="nombre">Nombre de la categoría</label>
                         <input type="text" class="form-control" name="nombre" required>

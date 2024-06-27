@@ -28,6 +28,6 @@ if (isset($_POST['guardar'])){
     }
 }
 
-$registro = $objCliente->Consultar();
+$registro = $objCliente->consultar();
 $_GET['ruta'] = 'clientes';
 require_once 'plantilla.php';

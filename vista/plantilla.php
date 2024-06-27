@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,8 +44,7 @@ PLUGINGS DE CSS
   include "modulos/sidebar.php";
 
   if(isset ($_GET["ruta"])){
-    if($_GET["ruta"] == "inicio" || $_GET["ruta"] == "productos" || $_GET["ruta"] == "categorias"
-    || $_GET["ruta"] == "clientes"){
+    if($_GET["ruta"] == "inicio" || $_GET["ruta"] == "categorias" || $_GET["ruta"] == "tpago" || $_GET["ruta"] == "divisa" || $_GET["ruta"] == "proveedores" || $_GET["ruta"] == "unidad" || $_GET["ruta"] == "general" || $_GET["ruta"] == "clientes" || $_GET["ruta"] == "productos" || $_GET["ruta"] == "venta"){
       include "modulos/". $_GET["ruta"] . ".php";
     } else {
       include "modulos/error.php";
