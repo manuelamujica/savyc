@@ -90,7 +90,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <div class="card-header bg-primary" >
+                        <div class="card-header" style="background-color: #db6a00 ; color:#ffffff">
                             <h3 class="card-title">Resumen de Venta</h3>
                         </div>
                         <div class="card-body">

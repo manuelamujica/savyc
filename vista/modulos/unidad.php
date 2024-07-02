@@ -24,7 +24,7 @@
             <div class="card">
             <div class="card-header">
             <!-- Botón para ventana modal -->
-            <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUnidad">Agregar Unidad de medida</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#modalregistrarUnidad">Registrar Unidad de medida</button>
             </div>
             <div class="card-body">
                 <!-- MOSTRAR EL REGISTRO DE UNIDADES DE MEDIDA -->
@@ -41,8 +41,6 @@
                 <tbody>
                     <?php
                         foreach($datos as $dato){
-                            //$datos = $objCategoria->consultarUnidad();
-                                    //foreach($datos as $dato){
                     ?>
                     <tr>
                         <td><?php echo $dato['cod_unidad']?></td>
@@ -51,9 +49,9 @@
                         <td><?php echo $dato['cantidad_presentacion']?></td>
                         <td><?php echo $dato['status']?></td>
                         <td>
-                            <form method="POST" action="index.php?pagina=unidad">
+                            <form method="POST">
                                 <button name="ajustar" class="btn btn-primary btn-sm editar" value="<?php echo $dato['cod_unidad']?>"><i class="fas fa-pencil-alt" title="Editar"></i></button><br>
-                                <button name="eliminar" class="btn btn-primary btn-sm eliminar" value="<?php echo $dato['cod_unidad']?>"><i class="fas fa-trash-alt" title="Eliminar"></i></button><br></div>
+                                <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato['cod_unidad']?>"><i class="fas fa-trash-alt" title="Eliminar"></i></button><br></div>
                             </form>
                         </td>
                     </tr>
@@ -64,21 +62,21 @@
     </div>
 
 <!-- =======================
-MODAL AGREGAR Unidades de medida 
+MODAL REGISTRAR Unidades de medida 
 ============================= -->
 
-        <div class="modal fade" id="modalAgregarUnidad" tabindex="-1" aria-labelledby="modalAgregarUnidadLabel" aria-hidden="true">
+        <div class="modal fade" id="modalregistrarUnidad" tabindex="-1" aria-labelledby="modalregistrarUnidadLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header" style="background-color: #db6a00; color:#ffffff">
-                        <h5 class="modal-title" id="exampleModalLabel">Agregar Unidad de medida</h5>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Registrar Unidad de medida</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
 
                     <div class="modal-body">
-                        <form id="formAgregarUnidad" method="post">
+                        <form id="formregistrarUnidad" method="post">
                             <!--   TIPO DE MEDIDA      -->
                             <div class="form-group">
                                 <label for="tipo_medida">Tipo de medida</label>
@@ -103,8 +101,8 @@ MODAL AGREGAR Unidades de medida
                                 </select>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary" name="guardar">Guardar</button>
                         </div>
                     </form>

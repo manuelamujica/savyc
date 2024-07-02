@@ -10,9 +10,11 @@ if(isset($_POST["guardar"])){
         $objGeneral->setRif($_POST["rif"]);
         $objGeneral->setNom($_POST["nombre"]);
         $objGeneral->setDir($_POST["direccion"]);
+        $objGeneral->setDir($_POST["telefono"]);
+        $objGeneral->setDir($_POST["email"]);
         $objGeneral->setDescri($_POST["descripcion"]);
         
-        $resul=$objGeneral->getcrearRol();
+        $resul=$objGeneral->getregistrar();
 
         if($resul == 1){
             echo    "<script>

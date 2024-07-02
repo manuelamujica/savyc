@@ -25,7 +25,7 @@
             <div class="card">
             <div class="card-header">
             <!-- Botón para ventana modal -->
-            <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarClientes">Agregar cliente</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#modalRegistrarClientes">Registrar cliente</button>
             </div>
             <div class="card-body">
 
@@ -57,7 +57,7 @@
                             <td> <?php echo $datos["direccion"] ?></td>
                             <td>
                                 <form method="post" >
-                                    <button name="modificar" class="btn btn-primary btn-sm editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt" title="editar"></i></button>
+                                    <button name="editar" class="btn btn-primary btn-sm editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt" title="editar"></i></button>
                                     <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt" title="eliminar"></i></button>
                                 </form>
                             </td>
@@ -69,22 +69,22 @@
     </div>
 
 <!-- =======================
-MODAL AGREGAR CLIENTES 
+MODAL REGISTRAR CLIENTES 
 ============================= -->
 
-<div class="modal fade" id="modalAgregarClientes" tabindex="-1" aria-labelledby="modalAgregarClientesLabel" aria-hidden="true">
+<div class="modal fade" id="modalRegistrarClientes" tabindex="-1" aria-labelledby="modalRegistrarClientesLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
 
-            <div class="modal-header" style="background-color: #db6a00; color:#ffffff">
-                <h5 class="modal-title" id="clientesModalLabel">Agregar cliente</h5>
+            <div class="modal-header">
+                <h5 class="modal-title" id="clientesModalLabel">Registrar cliente</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
             <div class="modal-body">
-                <form id="formAgregarClientes" method="post">
+                <form id="formRegistrarClientes" method="post">
                     <div class="form-group">
                         <label for="nombre">Nombre:</label>
                         <input type="text" class="form-control" name="nombre" required>
@@ -105,8 +105,8 @@ MODAL AGREGAR CLIENTES
                         <textarea class="form-control" name="direccion"></textarea>
                     </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-primary" name="guardar">Guardar</button>
                     </div>
                 </form>

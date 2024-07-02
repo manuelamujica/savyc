@@ -1,14 +1,20 @@
 <?php
+# 1) Requerir el modelo
+require_once "modelo/categorias.php"; 
 
-require_once "modelo/categorias.php"; //requiero al modelo
+# 2) Crear un objeto 
 $objCategoria= new Categoria;
 
+# 3) Si desde la vista se envio el boton guardar
 if(isset($_POST["guardar"])){
+    # 4) Y si no esta vacio los campos del formulario
     if(!empty($_POST["nombre"])){
         
-        #Instanciar los setter
+        # 5) Instanciar los setter
         $objCategoria->setNombre($_POST["nombre"]);
-        $resul=$objCategoria->getcrearCategoria();
+
+        # 6) variable para asignarle lo que retorne del metodo get
+        $resul=$objCategoria->getregistrar();
 
         if($resul == 1){
             echo    "<script>
@@ -26,6 +32,7 @@ if(isset($_POST["guardar"])){
     }
 }
 
-$registro = $objCategoria->Consultar();
+# 7) Para el metodo consultar (mostrar)
+$registro = $objCategoria->mostrar();
 $_GET['ruta'] = 'categorias';
 require_once 'plantilla.php';

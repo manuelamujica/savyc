@@ -2,7 +2,7 @@
 require_once 'modelo/divisa.php';
 $obj=new Divisa();
 
-if(isset($_POST['agregar'])){
+if(isset($_POST['registrar'])){
     $obj->setnombre($_POST['nombre']);
     $obj->setsimbolo($_POST['simbolo']);
 

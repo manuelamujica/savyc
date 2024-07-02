@@ -26,8 +26,8 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarDivisa">
-                                    Agregar Divisa
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalregistrarDivisa">
+                                    Registrar Divisa
                                 </button>
                             </div>
                             <!-- /.card-header -->
@@ -35,7 +35,7 @@
                                 <table id="paymentTypesTable" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <td>id</td>
+                                            <th>id</th>
                                             <th>Nombre</th>
                                             <th>Simbolo/Abreviatura</th>
                                             <th>Status</th>
@@ -55,7 +55,7 @@
                                             <td><?php echo $divisa['status']?></td>
                                             <td>
                                             <form method="POST">
-                                            <button name="modificar" class="btn btn-info btn-sm editar" value="<?php echo $dato['cod_divisa']; ?>">
+                                            <button name="modificar" class="btn btn-primary btn-sm editar" value="<?php echo $dato['cod_divisa']; ?>">
                                                 <i class="fas fa-pencil-alt" title="Editar"></i>
                                             </button>
                                             <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato['cod_divisa']; ?>">
@@ -79,12 +79,12 @@
     </div>
     <!-- /.content-wrapper -->
     
-    <!-- Agregar Divisa Modal -->
-<div class="modal fade" id="modalAgregarDivisa">
+    <!-- registrar Divisa Modal -->
+<div class="modal fade" id="modalregistrarDivisa">
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h4 class="modal-title">Agregar Divisa</h4>
+                <h4 class="modal-title">Registrar Divisa</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -102,7 +102,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary" name="agregar">Guardar Divisa</button>
+                    <button type="submit" class="btn btn-primary" name="registrar">Guardar</button>
                 </div>
                 </form>
             </div>

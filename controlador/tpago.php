@@ -2,7 +2,7 @@
 require_once 'modelo/tpago.php';
 $obj= new Tpago();
 
-if(isset($_POST['agregar'])){
+if(isset($_POST['registrar'])){
 
     if(isset($_POST['tipo_pago'])){
         //$obj->setmoneda($_POST['moneda']);

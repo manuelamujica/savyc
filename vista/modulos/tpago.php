@@ -1,4 +1,5 @@
 <?php require_once 'controlador/tpago.php'; ?>
+
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -9,7 +10,7 @@
         </div><!-- /.col -->
         <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
             <li class="breadcrumb-item active">Tipos de Pago</li>
         </ol>
         </div><!-- /.col -->
@@ -25,7 +26,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPaymentTypeModal">
-                                    Agregar Tipo de Pago
+                                    Registrar Tipo de Pago
                                 </button>
                             </div>
                             <!-- /.card-header -->
@@ -52,7 +53,7 @@
                                             <td><?php echo $dato['status'] ?></td>
                                             <td>
                                             <form method="POST">
-                                            <button name="modificar" class="btn btn-info btn-sm editar" value="<?php echo $dato['cod_tipo_pago']; ?>">
+                                            <button name="editar" class="btn btn-primary btn-sm editar" value="<?php echo $dato['cod_tipo_pago']; ?>">
                                                 <i class="fas fa-pencil-alt" title="Editar"></i>
                                             </button>
                                             <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato['cod_tipo_pago']; ?>">
@@ -76,12 +77,12 @@
     </div>
     <!-- /.content-wrapper -->
 
-    <!-- Modal para agregar tipo de pago -->
+    <!-- Modal para registrar tipo de pago -->
     <div class="modal fade" id="addPaymentTypeModal" tabindex="-1" role="dialog" aria-labelledby="addPaymentTypeModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addPaymentTypeModalLabel">Agregar Tipo de Pago</h5>
+                    <h5 class="modal-title" id="addPaymentTypeModalLabel">Registrar Tipo de Pago</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -100,9 +101,9 @@
                             </select>
                         </div>-->
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" name="agregar">Guardar</button>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary" name="registrar">Guardar</button>
                     </div>
                 </form>
             </div>

@@ -6,6 +6,8 @@ class General extends Conexion{
     private $rif;
     private $nombre;
     private $direccion;
+    private $telefono;
+    private $email;
     private $descripcion;
 
     public function __construct(){
@@ -32,6 +34,18 @@ class General extends Conexion{
     public function setDir($direccion){
         $this->direccion = $direccion;
     }
+    public function gettlf(){
+        return $this->telefono;
+    }
+    public function settlf($telefono){
+        $this->telefono = $telefono;
+    }
+    public function getemail(){
+        return $this->email;
+    }
+    public function setemail($email){
+        $this->email = $email;
+    }
     public function getDescri(){
         return $this->descripcion;
     }
@@ -42,14 +56,16 @@ class General extends Conexion{
 /*==============================
 REGISTRAR TIPOS DE USUARIO
 ================================*/
-    private function crearRol(){
+    private function registrar(){
 
-        $sql = "INSERT INTO config_empresa(rif,nombre,direccion,descripcion) VALUES(:rif,:nombre,:direccion,:descripcion)";
+        $sql = "INSERT INTO empresa(rif,nombre,direccion,telefono,email,descripcion) VALUES(:rif,:nombre,:direccion,:telefono,:email,:descripcion)";
 
         $strExec = $this->conex->prepare($sql);
         $strExec->bindParam(":rif", $this->rif);
         $strExec->bindParam(":nombre", $this->nombre);
         $strExec->bindParam(":direccion", $this->direccion);
+        $strExec->bindParam(":telefono", $this->telefono);
+        $strExec->bindParam(":email", $this->email);
         $strExec->bindParam(":descripcion", $this->descripcion);
 
         $resul = $strExec->execute();
@@ -62,12 +78,12 @@ REGISTRAR TIPOS DE USUARIO
         return $r;
 
     }
-    public function getcrearRol(){
-        return $this->crearRol();
+    public function getregistrar(){
+        return $this->registrar();
     }
 
     public function consultar(){
-        $registro="select * from config_empresa";
+        $registro="select * from empresa";
         $consulta=$this->conex->prepare($registro);
         $resul=$consulta->execute();
         $datos=$consulta->fetchAll(PDO::FETCH_ASSOC);

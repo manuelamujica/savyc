@@ -24,7 +24,7 @@
             <div class="card">
             <div class="card-header">
             <!-- Botón para ventana modal -->
-            <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarDivisa">Agregar Información</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#modalregistrarDivisa">Registrar Información</button>
             </div>
             <div class="card-body">
                     <?php foreach($datos as $dato): ?>
@@ -55,21 +55,21 @@
         </div>
         
 <!-- =======================
-MODAL AGREGAR divisas 
+MODAL REGISTRAR INFO GENERAL 
 ============================= -->
 
-        <div class="modal fade" id="modalAgregarDivisa" tabindex="-1" aria-labelledby="modalAgregarRolLabel" aria-hidden="true">
+        <div class="modal fade" id="modalregistrarempresa" tabindex="-1" aria-labelledby="modalregistrarRolLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header" style="background-color: #db6a00; color:#ffffff">
-                        <h5 class="modal-title" id="exampleModalLabel">Agregar informacion</h5>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Registrar informacion</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
 
                     <div class="modal-body">
-                        <form id="formGenerarl" method="post">
+                        <form id="formGeneral" method="post">
                             <!--   RIF DE LA empresa     -->
                             <div class="form-group">
                                 <label for="rif">Rif de la empresa</label>
@@ -85,15 +85,24 @@ MODAL AGREGAR divisas
                                 <label for="direccion">Direccion</label>
                                 <input type="text" class="form-control" name="direccion" required>
                             </div>
-
+                            <!--   TELEFONO     -->
+                            <div class="form-group">
+                                <label for="telefono">Telefono</label>
+                                <input type="tel" class="form-control" name="telefono">
+                            </div>
+                            <!--   EMAIL     -->
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" name="email">
+                            </div>
                             <!--   DESCRIPCION    -->
                             <div class="form-group">
                                 <label for="descripcion">Descripción</label>
                                 <input type="text" class="form-control" name="descripcion" required>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary" name="guardar">Guardar</button>
                         </div>
                     </form>

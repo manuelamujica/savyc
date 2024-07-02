@@ -16,18 +16,40 @@
     </section>
 
 <!-- Main content -->
-<section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-              <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarProducto">Agregar producto</button>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-
-              <table id="producto" class="table table-bordered table-striped">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#modalRegistrarProducto">Registrar producto</button>
+                            <!-- Botones PDF y Excel -->
+                            <div class="card-tools">
+                                <div class="float-right">
+                                    <button type="button" class="btn btn-success btn-sm">
+                                        <i class="fas fa-file-excel"></i> Excel
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-file-pdf"></i> PDF
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+            <div class="card-body">
+                <!-- Barra de búsqueda -->
+                <div class="input-group input-group-sm">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="Buscar">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <br>
+            
+            <!-- Tabla de productos -->
+            <table id="producto" class="table table-bordered table-striped">
                 <thead>
                         <tr>
                             <th>Código</th>
@@ -54,9 +76,10 @@
                             <td>2024-09-06 12:05:32</td>
                             <td>E</td>
                             <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning"><i class="fa fa-list-ul"></i></button>
-                                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                                <form method="post">
+                                    <button name="editar" class="btn btn-primary btn-sm editar" title="Editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt"></i></button>
+                                    <button name="eliminar" class="btn btn-danger btn-sm eliminar" title="Eliminar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt"></i></button>
+                                </form>
                             </td>
                         </tr>
                         <tr>
@@ -70,9 +93,10 @@
                             <td>2024-09-06 12:05:32</td>
                             <td>G</td>
                             <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning"><i class="fa fa-list-ul"></i></button>
-                                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                                <form method="post">
+                                    <button name="editar" class="btn btn-primary btn-sm editar" title="Editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt"></i></button>
+                                    <button name="eliminar" class="btn btn-danger btn-sm eliminar" title="Eliminar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt"></i></button>
+                                </form>
                             </td>
                         </tr>
                         <tr>
@@ -86,9 +110,10 @@
                             <td>2024-09-06 12:05:32</td>
                             <td>E</td>
                             <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning"><i class="fa fa-list-ul"></i></button>
-                                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                                <form method="post">
+                                    <button name="editar" class="btn btn-primary btn-sm editar" title="Editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt"></i></button>
+                                    <button name="eliminar" class="btn btn-danger btn-sm eliminar" title="Eliminar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt"></i></button>
+                                </form>
                             </td>
                         </tr>
                     </div>  

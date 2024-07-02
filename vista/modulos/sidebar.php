@@ -23,85 +23,117 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="categorias" class="nav-link">
-                        <i class="nav-icon fa fa-table"></i>
-                        <p>
-                            Categorías
-                        </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="compras" class="nav-link">
-                        <i class="nav-icon fa fa-shopping-cart"></i>
-                        <p>
-                            Compras
-                        </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="venta" class="nav-link">
-                        <i class="nav-icon fa fa-file"></i>
-                        <p>Ventas 
-                        </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="clientes" class="nav-link">
-                        <i class="nav-icon fa fa-users"></i>
-                        <p>Clientes</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="proveedores" class="nav-link">
-                        <i class="nav-icon far fa fa-truck"></i>
-                        <p>Proveedores</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="fas fa-cog mr-2"></i>
-                        <p>Configuracion<i class="right fas fa-angle-left"></i></p>
-                        </a>
+                        <i class="fas fa-dolly-flatbed nav-icon"></i>
+                        <p>
+                            Ajuste de Inventario<i class="right fas fa-angle-left nav-icon"></i>
+                        </p>
+                    </a>
                         <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="carga" class="nav-link">
+                                    <i class="fas fa-sort-amount-up-alt nav-icon"></i>
+                                    <p>Carga de productos</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="descarga" class="nav-link">
+                                    <i class="fas fa-sort-amount-down-alt nav-icon"></i>
+                                    <p>Descarga de productos</p>
+                                </a>
+                            </li>
+                        </ul>
                         <li class="nav-item">
-                            <a href="divisa" class="nav-link">
-                            <i class="fas fa-dollar-sign nav-icon"></i>
-                            <p>Divisas</p>
+                            <a href="categorias" class="nav-link">
+                                <i class="nav-icon fa fa-table"></i>
+                                <p>
+                                    Categorías
+                                </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="unidad" class="nav-link">
-                            <i class="fas fa-balance-scale nav-icon"></i>
-                            <p>Unidades de medida</p>
+                            <a href="compras" class="nav-link">
+                                <i class="nav-icon fa fa-shopping-cart"></i>
+                                <p>
+                                    Compras
+                                </p>
                             </a>
                         </li>
-                    <li class="nav-item">
-                            <a href="general" class="nav-link">
-                            <i class="fas fa-shopping-basket nav-icon"></i>
-                            <p>Ajuste general</p>
+                        <li class="nav-item">
+                            <a href="venta" class="nav-link">
+                                <i class="nav-icon fa fa-file"></i>
+                                <p>
+                                    Ventas 
+                                </p>
                             </a>
-                    </li>
-                    
-                    <li class="nav-item">
-                            <a href="roles" class="nav-link">
-                            <i class="fas fa-user-shield nav-icon"></i>
-                            <p>Ajuste de roles</p>
+                        </li>
+                        <li class="nav-item">
+                            <a href="clientes" class="nav-link">
+                                <i class="nav-icon fa fa-users"></i>
+                                <p>
+                                    Clientes
+                                </p>
                             </a>
-                    </li>
-                    <li class="nav-item">
-                            <a href="tpago" class="nav-link">
-                            <i class="fas fa-money-bill nav-icon"></i>
-                            <p>Tipos de pago</p>
+                        </li>
+                        <li class="nav-item">
+                            <a href="proveedores" class="nav-link">
+                                <i class="nav-icon far fa fa-truck"></i>
+                                <p>
+                                    Proveedores
+                                </p>
                             </a>
-                    </li>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-cog mr-2 nav-icon"></i>
+                                <p>
+                                    Configuracion<i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="divisa" class="nav-link">
+                                        <i class="fas fa-dollar-sign nav-icon"></i>
+                                        <p>
+                                            Divisas
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="unidad" class="nav-link">
+                                        <i class="fas fa-balance-scale nav-icon"></i>
+                                        <p>
+                                            Unidades de medida
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="general" class="nav-link">
+                                        <i class="fas fa-cogs nav-icon"></i>
+                                        <p>
+                                            Ajuste general
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="roles" class="nav-link">
+                                        <i class="fas fa-user-cog nav-icon"></i>
+                                        <p>
+                                            Ajuste de roles
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="tpago" class="nav-link">
+                                        <i class="fas fa-money-bill nav-icon"></i>
+                                        <p>
+                                            Tipos de pago
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</aside>
+                </nav>
+            </div>
+    </aside>
