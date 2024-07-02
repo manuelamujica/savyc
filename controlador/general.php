@@ -10,8 +10,8 @@ if(isset($_POST["guardar"])){
         $objGeneral->setRif($_POST["rif"]);
         $objGeneral->setNom($_POST["nombre"]);
         $objGeneral->setDir($_POST["direccion"]);
-        $objGeneral->setDir($_POST["telefono"]);
-        $objGeneral->setDir($_POST["email"]);
+        $objGeneral->settlf($_POST["telefono"]);
+        $objGeneral->setemail($_POST["email"]);
         $objGeneral->setDescri($_POST["descripcion"]);
         
         $resul=$objGeneral->getregistrar();

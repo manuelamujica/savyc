@@ -24,7 +24,7 @@
             <div class="card">
             <div class="card-header">
             <!-- Botón para ventana modal -->
-            <button class="btn btn-primary" data-toggle="modal" data-target="#modalregistrarDivisa">Registrar Información</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#modalregistrarempresa">Registrar Información</button>
             </div>
             <div class="card-body">
                     <?php foreach($datos as $dato): ?>
