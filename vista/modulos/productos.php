@@ -1,3 +1,4 @@
+<!-- MÓDULO TRANSACCIONAL, SOLO VISTA-->
 <div class="content-wrapper">
     <section class="content-header">
     <div class="container-fluid">

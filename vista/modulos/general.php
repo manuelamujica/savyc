@@ -58,7 +58,7 @@
 MODAL REGISTRAR INFO GENERAL 
 ============================= -->
 
-        <div class="modal fade" id="modalregistrarempresa" tabindex="-1" aria-labelledby="modalregistrarRolLabel" aria-hidden="true">
+        <div class="modal fade" id="modalregistrarempresa" tabindex="-1" aria-labelledby="modalregistrarempresaLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">

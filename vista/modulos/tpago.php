@@ -34,7 +34,7 @@
                                 <table id="paymentTypesTable" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <td>id</td>
+                                            <th>id</th>
                                             <th>Nombre</th>
                                             <!--<th>Moneda</th>-->
                                             <th>Status</th>
@@ -81,7 +81,7 @@
     <div class="modal fade" id="addPaymentTypeModal" tabindex="-1" role="dialog" aria-labelledby="addPaymentTypeModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="background: #db6a00 ;color: #ffffff; ">
                     <h5 class="modal-title" id="addPaymentTypeModalLabel">Registrar Tipo de Pago</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

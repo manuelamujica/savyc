@@ -68,7 +68,7 @@ MODAL REGISTRAR Unidades de medida
         <div class="modal fade" id="modalregistrarUnidad" tabindex="-1" aria-labelledby="modalregistrarUnidadLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header" style="background: #db6a00 ;color: #ffffff; ">
                         <h5 class="modal-title" id="exampleModalLabel">Registrar Unidad de medida</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>

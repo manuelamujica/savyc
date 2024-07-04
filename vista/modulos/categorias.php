@@ -1,5 +1,5 @@
 <?php 
-#Requerimos al controlador
+#Requerir al controlador
 require_once "controlador/categorias.php";
 ?>
 

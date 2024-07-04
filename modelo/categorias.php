@@ -1,23 +1,18 @@
 <?php 
-# 1) Requerir la conexion
 require_once "conexion.php";
 
-# 2) Clase que hereda de conexion
 class Categoria extends Conexion{
 
-    # 3) Atributos privados
     private $conex;
     private $nombre;
     #private $status=1;
 
-    # 4) El constructor donde se crea un objeto de la clase conexion para instanciar el metodo conectar
-    # y que pueda coectarse a la BD
     public function __construct(){
         $this->conex = new Conexion();
         $this->conex = $this->conex->conectar();
     }
 
-# 5) GETTER Y SETTER
+#GETTER Y SETTER
     public function getNombre(){
         return $this->nombre;
     }
@@ -73,6 +68,6 @@ MOSTRAR CATEGORIAS
             return $r=0;
         }
 
-}
+    }
     
 }

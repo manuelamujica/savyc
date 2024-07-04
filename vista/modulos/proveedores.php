@@ -102,7 +102,7 @@
             <div class="modal-body">
                 <form id="formproveedores" method="post">
                     <div class="card card-default">
-                        <div class="card-header" style="background: #db6a00; color: #ffffff">
+                        <div class="card-header" style="background: #E89005; color: #ffffff">
                             <h3 class="card-title">Información del proveedor</h3>
                         </div>
                         <div class="card-body">
@@ -136,7 +136,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary" name="registrar">Guardar</button>
+                                <button type="submit" class="btn btn-primary" name="guardar">Guardar</button>
                             </div>
                         </div>
                     </div>
@@ -147,20 +147,20 @@
 </div>
 <!-- Fin Modal de registro de proveedor -->
 
-<!-- Modal editar proveedor -->
+<!-- Modal editar proveedor 
 <div class="modal fade" id="editProve" tabindex="-1" role="dialog" aria-labelledby="editProve" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header" style="background: #db6a00; color: #ffffff">
+            <div class="modal-header">
                 <h5 class="modal-title">Editar proveedor</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="index.php?pagina=proveedores" method="post">
+                <form method="post">
                     <div class="card card-default">
-                        <div class="card-header" style="background: #db6a00; color: #ffffff">
+                        <div class="card-header">
                             <h3 class="card-title">Datos del proveedor</h3>
                         </div>
                         <div class="card-body">
@@ -256,9 +256,9 @@
         </div>
     </div>
 </div>
-<!-- Fin Modal editar proveedor -->
+Fin Modal editar proveedor -->
 
-<!-- Modal eliminar proveedor -->
+<!-- Modal eliminar proveedor 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
@@ -278,5 +278,5 @@
         </div>
     </div>
 </div>
-<!-- Fin Modal eliminar proveedor -->
+Fin Modal eliminar proveedor -->
 

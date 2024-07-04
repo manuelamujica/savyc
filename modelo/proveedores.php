@@ -140,10 +140,6 @@ public function registrar(){
     }
     return $res;
 
-   /*public function setregistrarNuevo(){
-       return $this->registrarNuevo();
-   }*/
-
  }//fin de registrar//
 
 

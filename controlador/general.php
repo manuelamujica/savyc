@@ -34,6 +34,6 @@ if(isset($_POST["guardar"])){
 
 }
 
-$datos=$objGeneral->consultar();
+$datos=$objGeneral->mostrar();
 $_GET['ruta']='general';
 require_once 'plantilla.php';

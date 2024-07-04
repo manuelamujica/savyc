@@ -54,7 +54,7 @@ class General extends Conexion{
     }
 
 /*==============================
-REGISTRAR TIPOS DE USUARIO
+REGISTRAR INFO DE EMPRESA
 ================================*/
     private function registrar(){
 
@@ -82,7 +82,10 @@ REGISTRAR TIPOS DE USUARIO
         return $this->registrar();
     }
 
-    public function consultar(){
+/*==============================
+MOSTRAR INFO DE EMPRESA
+================================*/
+    public function mostrar(){
         $registro="select * from empresa";
         $consulta=$this->conex->prepare($registro);
         $resul=$consulta->execute();

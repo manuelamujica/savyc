@@ -3,7 +3,7 @@ require_once 'modelo/proveedores.php';
 
 $objProveedores = new Proveedor();
 
-if (isset($_POST["registrar"])) {
+if (isset($_POST["guardar"])) {
 
     if (!empty($_POST["rif"]) && !empty($_POST["razon_social"])&& !empty($_POST["correo"]) && !empty($_POST["direccion"])) {
 

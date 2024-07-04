@@ -35,8 +35,6 @@ CSS PARA CUSTOMIZAR LA PLANTILLA
 }
 
 
-/* Falta color del texto del nombre del usuario*/
-
 /* CONTENIDO*/
 .content-wrapper a{
     color: #db6a00 ; 
@@ -57,10 +55,13 @@ CSS PARA CUSTOMIZAR LA PLANTILLA
     border-color: #E89005 !important; 
 }
 
+/* MODAL-CARD HEADER*/
 .content-wrapper .modal-header{
     background-color: #db6a00;
     color: #ffffff;
 }
+
+
 /* FOOTER*/
 .main-footer {
     background-color:#252525 ; /* Color de fondo */

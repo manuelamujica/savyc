@@ -23,7 +23,7 @@
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-        <h3 class="card-title">Title</h3>
+        <h3 class="card-title">¡BIENVENIDOS!</h3>
 
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -35,7 +35,7 @@
         </div>
         </div>
         <div class="card-body">
-        Start creating your amazing application!
+        Sistema para la comerzialización de productos
         </div>
         <!-- /.card-body -->
         </div>

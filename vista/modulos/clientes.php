@@ -57,8 +57,8 @@
                             <td> <?php echo $datos["direccion"] ?></td>
                             <td>
                                 <form method="post" >
-                                    <button name="editar" class="btn btn-primary btn-sm editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt" title="editar"></i></button>
-                                    <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt" title="eliminar"></i></button>
+                                    <button name="editar" title="editar" class="btn btn-primary btn-sm editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt"></i></button>
+                                    <button name="eliminar" title="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt" ></i></button>
                                 </form>
                             </td>
                         <?php } ?>
