@@ -24,7 +24,7 @@ class Categoria extends Conexion{
         return $this->status;
     }
     public function setStatus($status){
-        $this->nombre = $status;
+        $this->status = $status;
     }
 
 
