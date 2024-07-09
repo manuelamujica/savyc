@@ -18,7 +18,7 @@ PLUGINGS DE CSS
   <link rel="stylesheet" href="vista/dist/css/adminlte.css">
   <link rel="stylesheet" href="vista/dist/css/custom.css">
 
-  <!-- =======================
+<!-- =======================
     PLUGINGS DE JAVASACRIPT  
 =============================-->
   <!-- jQuery -->
@@ -27,14 +27,13 @@ PLUGINGS DE CSS
   <script src="vista/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="vista/dist/js/adminlte.min.js"></script>
-
 </head>
 
 <!-- =======================
     BODY
 =============================-->
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini layout-fixed">
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -47,7 +46,7 @@ PLUGINGS DE CSS
     if($_GET["ruta"] == "inicio" || $_GET["ruta"] == "categorias" || $_GET["ruta"] == "tpago" || $_GET["ruta"] == "divisa" || $_GET["ruta"] == "proveedores" || $_GET["ruta"] == "unidad" || $_GET["ruta"] == "general" || $_GET["ruta"] == "clientes" || $_GET["ruta"] == "productos" || $_GET["ruta"] == "venta" || $_GET["ruta"] == "roles"){
       include "modulos/". $_GET["ruta"] . ".php";
     } else {
-      include "modulos/error.php";
+      include "modulos/construccion.php";
     }
 
   }else{
@@ -57,8 +56,5 @@ PLUGINGS DE CSS
   include "modulos/footer.php";
   
   ?>
-
-  
-</div>
 </body>
 </html>

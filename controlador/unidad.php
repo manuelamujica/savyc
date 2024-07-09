@@ -3,14 +3,20 @@
 require_once "modelo/unidad.php"; //requiero al modelo
 $objUnidad= new Unidad;
 
-if(isset($_POST["guardar"])){
-    if(!empty($_POST["tipo_medida"]) && !empty($_POST['presentacion']) && !empty($_POST['cantidad_presentacion']) && !empty($_POST['status'])){
-        
+if(isset($_POST['buscar'])){
+    $pres=$_POST['buscar'];
+    $result=$objUnidad->buscar($pres);
+    header('Content-Type: application/json');
+    echo json_encode($result);
+    exit;
+}else if(isset($_POST["guardar"])){
+    if(!empty($_POST["tipo_medida"]) && !empty($_POST['presentacion']) && !empty($_POST['cantidad_presentacion'])){
+        if(!$objUnidad->buscar($_POST['presentacion'])){
         #Instanciar los setter
         $objUnidad->setTipo($_POST["tipo_medida"]);
         $objUnidad->setPresentacion($_POST["presentacion"]);
         $objUnidad->setCantidad($_POST["cantidad_presentacion"]);
-        $objUnidad->setStatus($_POST["status"]);
+        //$objUnidad->setStatus($_POST["status"]);
         
         $resul=$objUnidad->getcrearUnidad();
 
@@ -23,11 +29,8 @@ if(isset($_POST["guardar"])){
             echo    "<script>
                         alert('¡Las unidades de medida no pueden ir vacía o llevar caracteres especiales!');
                     </script>";
-        }
-    } else {
-        echo    "<script>
-                    alert('¡Las unidades de medida no pueden ir vacía o llevar caracteres especiales!');
-                </script>";
+            }
+        } 
     }
 
 }

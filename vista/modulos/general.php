@@ -40,11 +40,8 @@
                             </div>
                             <div class="card-footer">
                                 <form method="POST">
-                                    <button name="ajustar" class="btn btn-primary btn-sm editar" value="<?php echo $dato['rif']; ?>">
-                                        <i class="fas fa-pencil-alt" title="Editar"></i>
-                                    </button>
-                                    <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato['rif']; ?>">
-                                        <i class="fas fa-trash-alt" title="Eliminar"></i>
+                                    <button name="ajustar" title="Editar" class="btn btn-primary btn-sm editar" value="<?php echo $dato['rif']; ?>">
+                                        <i class="fas fa-pencil-alt"></i>
                                     </button>
                                 </form>
                             </div>
@@ -62,7 +59,7 @@ MODAL REGISTRAR INFO GENERAL
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Registrar informacion</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Registrar información</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

@@ -2,8 +2,10 @@
 require_once 'conexion.php';
 
 class Divisa extends Conexion{
-    private $nombre, $simbolo;
+    private $nombre;
+    private $simbolo;
     private $conex;
+
 
     public function __construct(){
         $this->conex= new Conexion();
@@ -11,7 +13,7 @@ class Divisa extends Conexion{
     }
 
     public function incluir(){
-        $registro="INSERT INTO divisas(nombre, abreviatura) VALUES(:nombre, :abreviatura)";
+        $registro="INSERT INTO divisas(nombre, abreviatura, status) VALUES(:nombre, :abreviatura, 1)";
 
         $strExec=$this->conex->prepare($registro);
         $strExec->bindParam(':nombre', $this->nombre);
@@ -37,11 +39,29 @@ class Divisa extends Conexion{
         }
     }
 
+    public function buscar($valor){
+        $this->nombre=$valor;
+        $registro = "select * from divisas where nombre='".$this->nombre."'";
+        $resutado= "";
+            $dato=$this->conex->prepare($registro);
+            $resul=$dato->execute();
+            $resultado=$dato->fetch(PDO::FETCH_ASSOC);
+            if ($resul) {
+                return $resultado;
+            }else{
+                return false;
+            }
+    
+    }
+
     public function setnombre($valor){
         $this->nombre=$valor;
     }
     public function setsimbolo($valor){
         $this->simbolo=$valor;
+    }
+    public function setstatus($valor){
+        $this->status = $valor;
     }
 
     public function getnombre(){
@@ -49,5 +69,8 @@ class Divisa extends Conexion{
     }
     public function getsimbolo(){
         return $this->simbolo;
+    }
+    public function getStatus(){
+        return $this->status;
     }
 }

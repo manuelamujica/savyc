@@ -12,7 +12,7 @@ class Tpago extends Conexion{
     }
 
     public function incluir(){
-        $registro="INSERT INTO tipo_pago(medio_pago) VALUES(:medio_pago)";
+        $registro="INSERT INTO tipo_pago(medio_pago, status) VALUES(:medio_pago, 1)";
 
         $strExec=$this->conex->prepare($registro);
         $strExec->bindParam(':medio_pago', $this->metodo);
@@ -36,6 +36,21 @@ class Tpago extends Conexion{
         }else{
             return $res=0;
         }
+    }
+
+    public function buscar($valor){
+        $this->metodo=$valor;
+        $registro = "select * from tipo_pago where medio_pago='".$this->metodo."'";
+        $resutado= "";
+            $dato=$this->conex->prepare($registro);
+            $resul=$dato->execute();
+            $resultado=$dato->fetch(PDO::FETCH_ASSOC);
+            if ($resul) {
+                return $resultado;
+            }else{
+                return false;
+            }
+    
     }
 
     #set

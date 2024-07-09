@@ -31,11 +31,11 @@
             <table id="unidad" class="table table-bordered table-striped">
                 <thead>
                         <tr>
-                            <th>Codigo</th>
+                            <th>Código</th>
                             <th>Tipo de medida</th>
                             <th>Presentación</th>
                             <th>Cantidad de la presentación</th>
-                            <th>Estatus</th>
+                            <th>Status</th>
                         </tr>
                 </thead>
                 <tbody>
@@ -47,11 +47,17 @@
                         <td><?php echo $dato['tipo_medida']?></td>
                         <td><?php echo $dato['presentacion']?></td>
                         <td><?php echo $dato['cantidad_presentacion']?></td>
-                        <td><?php echo $dato['status']?></td>
+                        <td>
+                            <?php if ($dato['status']==1): ?>
+                                <span class="badge bg-success">Activo</span>
+                            <?php else: ?>
+                                <span class="badge bg-danger">Inactivo</span>
+                            <?php endif; ?>
+                        </td>
                         <td>
                             <form method="POST">
-                                <button name="ajustar" class="btn btn-primary btn-sm editar" value="<?php echo $dato['cod_unidad']?>"><i class="fas fa-pencil-alt" title="Editar"></i></button><br>
-                                <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato['cod_unidad']?>"><i class="fas fa-trash-alt" title="Eliminar"></i></button><br></div>
+                                <button name="ajustar" class="btn btn-primary btn-sm editar" title="Editar" value="<?php echo $dato['cod_unidad']?>"><i class="fas fa-pencil-alt"></i></button>
+                                <button name="eliminar" class="btn btn-danger btn-sm eliminar" title="Eliminar" value="<?php echo $dato['cod_unidad']?>"><i class="fas fa-trash-alt"></i></button><br></div>
                             </form>
                         </td>
                     </tr>
@@ -90,15 +96,7 @@ MODAL REGISTRAR Unidades de medida
                             <!--   CANTIDAD DE PRESENTACIÓN      -->
                             <div class="form-group">
                                 <label for="cantidad_presentacion">Cantidad en la presentación</label>
-                                <input type="text" class="form-control" name="cantidad_presentacion" required>
-                            </div>
-                            <!--   STATUS     -->
-                            <div class="form-group">
-                                <select name="status" id="option">
-                                    <option></option>
-                                    <option value="1">Activo</option>
-                                    <option value="0">Inactivo</option>
-                                </select>
+                                <input type="text" class="form-control" id="presentacion" name="cantidad_presentacion" required>
                             </div>
                         </div>
                         <div class="modal-footer justify-content-between">
@@ -111,3 +109,13 @@ MODAL REGISTRAR Unidades de medida
         </div>
     </section>
 </div>
+<script>
+    $('#presentacion').blur(function (e){
+        var buscar=$('#presentacion').val();
+        $.post('index.php?pagina=unidad', {buscar}, function(response){
+        if(response != ''){
+            alert('La presentacion ya se encuentra registrada');
+        }
+        },'json');
+    });
+</script>

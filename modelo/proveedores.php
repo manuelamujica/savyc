@@ -10,21 +10,17 @@ private $razon_social;
 private $correo;
 private $direccion;
 private $status;
-private $cedula;
-private $nombre;
-private $apellido;
-private $telefono;
 
 
-   public function __construct(){
+  public function __construct(){
         $this->conex = new Conexion();
         $this->conex = $this->conex->conectar();
     }
 
-   public function getRif(){
+  public function getRif(){
     return $this->rif;
   }
- 
+
     public function setRif($rif){
       $this->rif=$rif;
     }
@@ -65,59 +61,12 @@ private $telefono;
         $this->status=$status;
     }
 
-    public function getCedula(){
-        return $this->cedula;
-    }
-   
-   public function setCedula($cedula){
-        $this->cedula=$cedula;
-    }
- 
-    public function getNombre(){
-        return $this->nombre;
-    }
-   
-    public function setNombre($nombre){
-        $this->nombre=$nombre;
-    }
- 
-  public function getApellido(){
-        return $this->apellido;
-    }
-   
-   public function setApellido($apellido){
-        $this->apellido=$apellido;
-    }
-
-    public function getTelefono(){
-    return $this->telefono;
-  }
-   
-   public function setTelefono($telefono){
-      $this->telefono=$telefono;
-    }
-   
-   /*public function getTelefono(){
-        return $this->telefono;
-    }
-   
-   public function setTelefono($Telefono){
-        $this->telefono=$Telefono;
-    }
-
-  public function getStatus(){
-        return $this->status;
-    }
-   
-   public function setStatus($status){
-        $this->status=$status;
-    }*/
 
 //metodos crud  //
 
 public function registrar(){
     
-  $sql = "INSERT INTO proveedores(rif,razon_social,email,direccion)  VALUES  (:rif,:razon_social,:email,:direccion)";
+  $sql = "INSERT INTO proveedores(rif,razon_social,email,direccion, status)  VALUES  (:rif,:razon_social,:email,:direccion, 1)";
 
     $strExec =$this->conex->prepare($sql);
 
@@ -125,13 +74,7 @@ public function registrar(){
     $strExec->bindParam(':razon_social',$this->razon_social);
     $strExec->bindParam(':email',$this->correo);
     $strExec->bindParam(':direccion',$this->direccion);
-    //$strExec->bindParam(':status',$this->status);
-    //$strExec->bindParam(':cedula',$this->cedula);
-    //$strExec->bindParam(':nombre',$this->nombre);
-    //$strExec->bindParam(':apellido',$this->apellido);
-    //$strExec->bindParam(':telefono',$this->telefono);
-    //$strExec->bindParam(':telefono',$this->telefono);
-    //$strExec->bindParam(':status',$this->status);
+    
     $resul=$strExec->execute();
     if ($resul) {
       $res=1;
@@ -158,6 +101,21 @@ public function consultar(){
 
  } //fin de consultar//
 
+public function buscar($valor){
+  $this->rif = $valor;
+  $registro= "select * from proveedores where rif='".$this->rif."'";
+  $resultado= "";
+  $dato = $this->conex->prepare($registro);
+  $resul = $dato->execute();
+  $resultado=$dato->fetch(PDO::FETCH_ASSOC);
+  if($resul){
+      return $resultado;
+  }else{
+      return false;
+  }
 }
-  
+
+
+}
+
 ?>

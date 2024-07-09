@@ -79,7 +79,7 @@
                             <td>
                                 <form method="post">
                                     <button name="editar" class="btn btn-primary btn-sm editar" title="Editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt"></i></button>
-                                    <button name="eliminar" class="btn btn-danger btn-sm eliminar" title="Eliminar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt"></i></button>
+                                    <button name="eliminar" class="btn btn-danger btn-sm eliminar" title="Anular" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>
@@ -96,7 +96,7 @@
                             <td>
                                 <form method="post">
                                     <button name="editar" class="btn btn-primary btn-sm editar" title="Editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt"></i></button>
-                                    <button name="eliminar" class="btn btn-danger btn-sm eliminar" title="Eliminar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt"></i></button>
+                                    <button name="eliminar" class="btn btn-danger btn-sm eliminar" title="Anular" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>
@@ -113,7 +113,7 @@
                             <td>
                                 <form method="post">
                                     <button name="editar" class="btn btn-primary btn-sm editar" title="Editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt"></i></button>
-                                    <button name="eliminar" class="btn btn-danger btn-sm eliminar" title="Eliminar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt"></i></button>
+                                    <button name="eliminar" class="btn btn-danger btn-sm eliminar" title="Anular" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>

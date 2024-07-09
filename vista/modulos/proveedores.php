@@ -70,7 +70,13 @@
                                             <td><?php echo $datos["razon_social"] ?></td>
                                             <td><?php echo $datos["email"] ?></td>
                                             <td><?php echo $datos["direccion"] ?></td>
-                                            <td><?php echo $datos["status"] ?></td>
+                                            <td>
+                                                <?php if ($datos['status']==1):?>
+                                                    <span class="badge bg-success">Activo</span>
+                                                <?php else:?>
+                                                    <span class="badge bg-danger">Inactivo</span>
+                                                <?php endif;?>
+                                            </td>
                                             <td>
                                                 <form method="post">
                                                     <button name="editar" class="btn btn-primary btn-sm editar" value="<?php echo $dato["nombre"] ?>" title="Editar"><i class="fas fa-pencil-alt"></i></button>
@@ -146,6 +152,16 @@
     </div>
 </div>
 <!-- Fin Modal de registro de proveedor -->
+<script>
+    $('#rif').blur(function (e){
+        var buscar=$('#rif').val();
+        $.post('index.php?pagina=proveedores', {buscar}, function(response){
+        if(response != ''){
+            alert('El proveedor ya se encuentra registrado');
+        }
+        },'json');
+    });
+</script>
 
 <!-- Modal editar proveedor 
 <div class="modal fade" id="editProve" tabindex="-1" role="dialog" aria-labelledby="editProve" aria-hidden="true">

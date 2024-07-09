@@ -15,6 +15,11 @@ CSS PARA CUSTOMIZAR LA PLANTILLA
     color: #e2e2e2 !important; /* al pasar el ratón */
 }
 
+.dropdown-item.active, .dropdown-item:active{
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #E89005;
+}
 /* SIDEBAR */
 .main-sidebar{
     background-color: #252525; /* Fondo del sidebar */
@@ -75,3 +80,6 @@ CSS PARA CUSTOMIZAR LA PLANTILLA
     color: #E89005; 
     font-weight: bold;
 }
+
+
+

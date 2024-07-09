@@ -24,7 +24,7 @@
             <div class="card">
             <div class="card-header">
             <!-- Botón para ventana modal -->
-            <button class="btn btn-primary" data-toggle="modal" data-target="#modalregistrarroles">Registrar Roles</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#modalregistrarroles">Registrar Rol</button>
             </div>
             <div class="card-body">
 
@@ -32,6 +32,7 @@
                 <thead>
                         <tr>
                             <th>Rol</th>
+                            <th>Status</th>
                             <th>Acciones</th>
                         </tr>
                 </thead>
@@ -42,14 +43,20 @@
                 ?>
                     <tr>
                         <td><?php echo $dato['rol']?></td>
-                        <td><?php echo $dato['status']?></td>
+                        <td>
+                            <?php if ($dato['status']==1): ?>
+                                <span class="badge bg-success">Activo</span>
+                            <?php else: ?>
+                                <span class="badge bg-danger">Inactivo</span>
+                            <?php endif; ?>
+                        </td>
                         <td>
                         <form method="POST">
-                        <button name="modificar" class="btn btn-primary btn-sm editar" value="<?php echo $dato['rol']; ?>">
-                            <i class="fas fa-pencil-alt" title="Editar"></i>
+                        <button name="modificar" title="Editar" class="btn btn-primary btn-sm editar" value="<?php echo $dato['rol']; ?>">
+                            <i class="fas fa-pencil-alt"></i>
                         </button>
-                        <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato['rol']; ?>">
-                            <i class="fas fa-trash-alt" title="Eliminar"></i>
+                        <button name="eliminar" title="Eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato['rol']; ?>">
+                            <i class="fas fa-trash-alt"></i>
                         </button>
                         </form>
                         </td>
@@ -69,7 +76,7 @@ MODAL REGISTRAR ROLES
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Agregar nuevo rol</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Registar Rol</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -82,19 +89,9 @@ MODAL REGISTRAR ROLES
                                 <label for="rol">Rol</label>
                                 <input type="text" class="form-control" name="rol" required>
                             </div>
-
-                            <!--   STATUS     -->
-                            <div class="form-group">
-                            <label for="status">Status</label>
-                                <select name="status" id="option">
-                                    <option></option>
-                                    <option value="1">Activo</option>
-                                    <option value="0">Inactivo</option>
-                                </select>
-                            </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary" name="guardar">Guardar</button>
                         </div>
                     </form>
@@ -103,3 +100,13 @@ MODAL REGISTRAR ROLES
         </div>
     </section>
 </div>
+<script>
+    $('#rol').blur(function (e){
+        var buscar=$('#rol').val();
+        $.post('index.php?pagina=roles', {buscar}, function(response){
+        if(response != ''){
+            alert('Este rol ya se encuentra registrado');
+        }
+        },'json');
+    });
+</script>

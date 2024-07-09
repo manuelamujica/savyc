@@ -3,12 +3,12 @@ require_once "conexion.php";
 class General extends Conexion{
 
     private $conex;
-    private $rif;
     private $nombre;
+    private $rif;
     private $direccion;
+    private $descripcion;
     private $telefono;
     private $email;
-    private $descripcion;
 
     public function __construct(){
         $this->conex = new Conexion();

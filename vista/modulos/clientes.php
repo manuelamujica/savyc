@@ -40,6 +40,7 @@
                             <th>Teléfono</th>
                             <th>Email</th>
                             <th>Dirección</th>
+                            <th>Status</th>
                             <th>Acciones</th>
                         </tr>
                 </thead>
@@ -56,9 +57,16 @@
                             <td> <?php echo $datos["email"] ?></td>
                             <td> <?php echo $datos["direccion"] ?></td>
                             <td>
+                                <?php if ($datos['status']==1):?>
+                                <span class="badge bg-success">Activo</span>
+                                <?php else:?>
+                                <span class="badge bg-danger">Inactivo</span>
+                                <?php endif;?>
+                            </td>
+                            <td>
                                 <form method="post" >
-                                    <button name="editar" title="editar" class="btn btn-primary btn-sm editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt"></i></button>
-                                    <button name="eliminar" title="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt" ></i></button>
+                                    <button name="editar" title="Editar" class="btn btn-primary btn-sm editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt"></i></button>
+                                    <button name="eliminar" title="Eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-trash-alt" ></i></button>
                                 </form>
                             </td>
                         <?php } ?>
@@ -86,14 +94,14 @@ MODAL REGISTRAR CLIENTES
             <div class="modal-body">
                 <form id="formRegistrarClientes" method="post">
                     <div class="form-group">
+                        <label for="cedula_rif">Cédula o Rif:</label>
+                        <input type="text" class="form-control" name="cedula_rif" id="cedula_rif" required>
+                        
                         <label for="nombre">Nombre:</label>
                         <input type="text" class="form-control" name="nombre" required>
 
                         <label for="apellido">Apellido:</label>
                         <input type="text" class="form-control" name="apellido" required>
-
-                        <label for="cedula_rif">Cédula o Rif:</label>
-                        <input type="text" class="form-control" name="cedula_rif" required>
 
                         <label for="telefono">Teléfono:</label>
                         <input type="tel" class="form-control" name="telefono">
@@ -115,3 +123,13 @@ MODAL REGISTRAR CLIENTES
     </div>
 </section>
 </div>
+<script>
+    $('#cedula_rif').blur(function (e){
+        var buscar=$('#cedula_rif').val();
+        $.post('index.php?pagina=clientes', {buscar}, function(response){
+            if(response != ''){
+                alert('El cliente ya se encuentra registrado');
+            }
+        },'json');
+    });
+</script>

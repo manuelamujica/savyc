@@ -30,11 +30,10 @@ REGISTRAR TIPOS DE USUARIO
 ================================*/
     private function crearRol(){
 
-        $sql = "INSERT INTO tipo_usuario(rol,status) VALUES(:rol,:status)";
+        $sql = "INSERT INTO tipo_usuario(rol,status) VALUES(:rol, 1)";
 
         $strExec = $this->conex->prepare($sql);
         $strExec->bindParam(":rol", $this->rol);
-        $strExec->bindParam(":status", $this->status);
 
         $resul = $strExec->execute();
 
@@ -60,6 +59,21 @@ REGISTRAR TIPOS DE USUARIO
         }else{
             return $res=0;
         }
+    }
+
+    public function buscar($valor){
+        $this->rol=$valor;
+        $registro = "select * from tipo_usuario where rol='".$this->rol."'";
+        $resutado= "";
+            $dato=$this->conex->prepare($registro);
+            $resul=$dato->execute();
+            $resultado=$dato->fetch(PDO::FETCH_ASSOC);
+            if ($resul) {
+                return $resultado;
+            }else{
+                return false;
+            }
+    
     }
 
 }

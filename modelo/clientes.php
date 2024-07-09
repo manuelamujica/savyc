@@ -64,7 +64,7 @@ REGISTRAR CLIENTE
 
 private function registrar(){ 
 
-    $registro = "INSERT INTO clientes(nombre,apellido,cedula_rif,telefono,email,direccion) VALUES(:nombre, :apellido, :cedula_rif, :telefono,:email,:direccion)";
+    $registro = "INSERT INTO clientes(nombre,apellido,cedula_rif,telefono,email,direccion,status) VALUES(:nombre, :apellido, :cedula_rif, :telefono,:email,:direccion,1)";
     
     #instanciar el metodo PREPARE no la ejecuta, sino que la inicializa
     $strExec = $this->conex->prepare($registro);
@@ -102,6 +102,23 @@ public function consultar(){
     }else{
         return $r=0;
     }
+}
+
+public function buscar($valor){
+    $this->cedula=$valor;
+    $registro = "select * from clientes where cedula_rif='".$this->cedula."'";
+    $resutado= "";
+        $dato=$this->conex->prepare($registro);
+        $resul=$dato->execute();
+        $resultado=$dato->fetch(PDO::FETCH_ASSOC);
+        if ($resul) {
+            return $resultado;
+        }else{
+            return false;
+        }
 
 }
+
+
+
 }

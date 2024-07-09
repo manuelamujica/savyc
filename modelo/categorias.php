@@ -5,7 +5,7 @@ class Categoria extends Conexion{
 
     private $conex;
     private $nombre;
-    #private $status=1;
+    private $status;
 
     public function __construct(){
         $this->conex = new Conexion();
@@ -21,7 +21,7 @@ class Categoria extends Conexion{
     }
 
     public function getStatus(){
-        return $this->nombre;
+        return $this->status;
     }
     public function setStatus($status){
         $this->nombre = $status;
@@ -33,7 +33,7 @@ REGISTRAR CATEGORIA
 ================================*/
     private function registrar(){
 
-        $sql = "INSERT INTO categorias(nombre) VALUES(:nombre)";
+        $sql = "INSERT INTO categorias(nombre,status) VALUES(:nombre,1)";
 
         $strExec = $this->conex->prepare($sql);
         $strExec->bindParam(":nombre", $this->nombre);
@@ -52,7 +52,23 @@ REGISTRAR CATEGORIA
     public function getregistrar(){
         return $this->registrar();
     }
-
+    
+/*==============================
+VALIDAR CATEGORIAS
+================================*/
+public function buscar($valor){
+    $this->nombre=$valor;
+    $registro = "select * from categorias where nombre='".$this->nombre."'";
+    $resutado= "";
+        $dato=$this->conex->prepare($registro);
+        $resul=$dato->execute();
+        $resultado=$dato->fetch(PDO::FETCH_ASSOC);  
+        if ($resul) {
+            return $resultado;
+        }else{
+            return false;
+        }
+}
 /*==============================
 MOSTRAR CATEGORIAS
 ================================*/

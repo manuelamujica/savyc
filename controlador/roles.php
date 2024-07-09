@@ -3,12 +3,18 @@
 require_once "modelo/roles.php"; //requiero al modelo
 $objRol= new Rol();
 
-if(isset($_POST["guardar"])){
-    if(!empty($_POST["rol"]) && !empty($_POST['status'])){
-        
+if(isset($_POST['buscar'])){
+    $rol=$_POST['buscar'];
+    $result=$objRol->buscar($rol);
+    header('Content-Type: application/json');
+    echo json_encode($result);
+    exit;
+}else if(isset($_POST["guardar"])){
+    if(!empty($_POST["rol"])){
+        if(!$objRol->buscar($_POST['rol'])){
         #Instanciar los setter
         $objRol->setRol($_POST["rol"]);
-        $objRol->setStatus($_POST["status"]);
+        //$objRol->setStatus($_POST["status"]);
         
         $resul=$objRol->getcrearRol();
 
@@ -21,11 +27,8 @@ if(isset($_POST["guardar"])){
             echo    "<script>
                         alert('¡Los roles no pueden ir vacios o llevar caracteres especiales!');
                     </script>";
+            }
         }
-    } else {
-        echo    "<script>
-                    alert('¡Los roles no pueden ir vacios o llevar caracteres especiales!');
-                </script>";
     }
 
 }

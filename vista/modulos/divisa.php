@@ -52,14 +52,20 @@
                                             <td><?php echo $divisa['cod_divisa']?></td>
                                             <td><?php echo $divisa['nombre']?></td>
                                             <td><?php echo $divisa['abreviatura'] ?></td>
-                                            <td><?php echo $divisa['status']?></td>
+                                            <td>
+                                                <?php if ($divisa['status']==1):?>
+                                                    <span class="badge bg-success">Activo</span>
+                                                <?php else:?>
+                                                    <span class="badge bg-danger">Inactivo</span>
+                                                <?php endif;?>
+                                            </td>
                                             <td>
                                             <form method="POST">
-                                            <button name="modificar" class="btn btn-primary btn-sm editar" value="<?php echo $dato['cod_divisa']; ?>">
-                                                <i class="fas fa-pencil-alt" title="Editar"></i>
+                                            <button name="modificar" title="Editar" class="btn btn-primary btn-sm editar" value="<?php echo $dato['cod_divisa']; ?>">
+                                                <i class="fas fa-pencil-alt"></i>
                                             </button>
-                                            <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato['cod_divisa']; ?>">
-                                                <i class="fas fa-trash-alt" title="Eliminar"></i>
+                                            <button name="eliminar" title="Eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato['cod_divisa']; ?>">
+                                                <i class="fas fa-trash-alt"></i>
                                             </button>
                                             </form>
                                             </td>
@@ -111,3 +117,13 @@
             <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
+<script>
+    $('#nombre').blur(function (e){
+        var buscar=$('#nombre').val();
+        $.post('index.php?pagina=divisa', {buscar}, function(response){
+        if(response != ''){
+            alert('La divisa ya se encuentra registrada');
+        }
+        },'json');
+    });
+</script>

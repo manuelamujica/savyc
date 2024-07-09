@@ -33,8 +33,9 @@ require_once "controlador/categorias.php";
                             <table id="categorias" class="table table-bordered table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Codigo</th>
+                                        <th>Código</th>
                                         <th>Categoría</th>
+                                        <th>Status</th>
                                         <th>Acciones</th>
                                     </tr>         
                                 </thead>
@@ -46,6 +47,13 @@ require_once "controlador/categorias.php";
                                         <tr>
                                             <td> <?php echo $datos["cod_categoria"] ?></td>
                                             <td> <?php echo $datos["nombre"] ?></td>
+                                            <td>
+                                                <?php if ($datos['status']==1):?>
+                                                    <span class="badge bg-success">Activo</span>
+                                                <?php else:?>
+                                                    <span class="badge bg-danger">Inactivo</span>
+                                                <?php endif;?>
+                                            </td>
                                             <td>
                                                 <form method="post">
                                                     <button name="editar" class="btn btn-primary btn-sm editar" title="Editar" value="<?php echo $dato["nombre"] ?>"><i class="fas fa-pencil-alt"></i></button>
@@ -75,7 +83,7 @@ require_once "controlador/categorias.php";
                                     <form id="formRegistrarCategoria" method="post">
                                         <div class="form-group">
                                             <label for="nombre">Nombre de la categoría</label>
-                                            <input type="text" class="form-control" name="nombre" required>
+                                            <input type="text" class="form-control" id="nombre" name="nombre" required>
                                         </div>
                                 </div>
                                 <div class="modal-footer justify-content-between">
@@ -91,3 +99,13 @@ require_once "controlador/categorias.php";
         </div>      
     </section>
 </div>
+<script>
+    $('#nombre').blur(function (e){
+        var buscar=$('#nombre').val();
+        $.post('index.php?pagina=categorias', {buscar}, function(response){
+            if(response != ''){
+                alert('La categoria ya se encuentra registradoa');
+            }
+        },'json');
+    });
+</script>

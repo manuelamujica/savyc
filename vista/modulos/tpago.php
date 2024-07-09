@@ -50,14 +50,20 @@
                                         <tr>
                                             <td><?php echo $dato['cod_tipo_pago']?></td>
                                             <td><?php echo $dato['medio_pago']?></td>
-                                            <td><?php echo $dato['status'] ?></td>
+                                            <td>
+                                                <?php if ($dato['status']==1):?>
+                                                    <span class="badge bg-success">Activo</span>
+                                                <?php else:?>
+                                                    <span class="badge bg-danger">Inactivo</span>
+                                                <?php endif;?>
+                                            </td>
                                             <td>
                                             <form method="POST">
-                                            <button name="editar" class="btn btn-primary btn-sm editar" value="<?php echo $dato['cod_tipo_pago']; ?>">
-                                                <i class="fas fa-pencil-alt" title="Editar"></i>
+                                            <button name="editar" title="Editar" class="btn btn-primary btn-sm editar" value="<?php echo $dato['cod_tipo_pago']; ?>">
+                                                <i class="fas fa-pencil-alt"></i>
                                             </button>
-                                            <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato['cod_tipo_pago']; ?>">
-                                                <i class="fas fa-trash-alt" title="Eliminar"></i>
+                                            <button name="eliminar" title="Eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato['cod_tipo_pago']; ?>">
+                                                <i class="fas fa-trash-alt"></i>
                                             </button>
                                             </form>
                                             </td>
@@ -91,15 +97,8 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="paymentTypeName">Nombre del Tipo de Pago</label>
-                            <input type="text" class="form-control" id="paymentTypeName" name="tipo_pago" required>
+                            <input type="text" class="form-control" id="tipo_pago" name="tipo_pago" required>
                         </div>
-                        <!--<div class="form-group">
-                            <label for="currency">Moneda</label>
-                            <select class="form-control" id="currency" name="moneda">
-                                <option value="BS">Bolivares</option>
-                                Opciones de monedas cargadas dinámicamente con PHP 
-                            </select>
-                        </div>-->
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -109,4 +108,13 @@
             </div>
         </div>
     </div>
-
+<script>
+    $('#tipo_pago').blur(function (e){
+        var buscar=$('#tipo_pago').val();
+        $.post('index.php?pagina=tpago', {buscar}, function(response){
+        if(response != ''){
+            alert('Este tipo de pago ya existe');
+        }
+        },'json');
+    });
+</script>
