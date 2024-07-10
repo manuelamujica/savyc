@@ -24,7 +24,7 @@ class Categoria extends Conexion{
         return $this->status;
     }
     public function setStatus($status){
-        $this->nombre = $status;
+        $this->status = $status;
     }
 
 
@@ -59,7 +59,7 @@ VALIDAR CATEGORIAS
 public function buscar($valor){
     $this->nombre=$valor;
     $registro = "select * from categorias where nombre='".$this->nombre."'";
-    $resutado= "";
+    $resultado= "";
         $dato=$this->conex->prepare($registro);
         $resul=$dato->execute();
         $resultado=$dato->fetch(PDO::FETCH_ASSOC);  

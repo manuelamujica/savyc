@@ -26,13 +26,13 @@ if(isset($_POST['buscar'])){
                         alert('Registrado con éxito');
                         window.location = 'proveedores';
                     </script>";
-        } else {
-            echo    "<script>
-                        alert('¡La campos vacios!');
-                    </script>";
-            }
         } 
-    }
+        } 
+    }else {
+        echo    "<script>
+                    alert('¡La campos vacios!');
+                </script>";
+        }
 }
 
 $registro=$objProveedores->consultar();

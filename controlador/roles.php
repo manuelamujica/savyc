@@ -14,7 +14,6 @@ if(isset($_POST['buscar'])){
         if(!$objRol->buscar($_POST['rol'])){
         #Instanciar los setter
         $objRol->setRol($_POST["rol"]);
-        //$objRol->setStatus($_POST["status"]);
         
         $resul=$objRol->getcrearRol();
 

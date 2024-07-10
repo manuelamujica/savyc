@@ -3,12 +3,12 @@ require_once "conexion.php";
 class General extends Conexion{
 
     private $conex;
-    private $nombre;
     private $rif;
+    private $nombre;
     private $direccion;
-    private $descripcion;
     private $telefono;
     private $email;
+    private $descripcion;
 
     public function __construct(){
         $this->conex = new Conexion();
@@ -58,14 +58,12 @@ REGISTRAR INFO DE EMPRESA
 ================================*/
     private function registrar(){
 
-        $sql = "INSERT INTO empresa(rif,nombre,direccion,telefono,email,descripcion) VALUES(:rif,:nombre,:direccion,:telefono,:email,:descripcion)";
+        $sql = "INSERT INTO empresa(rif,nombre,direccion,descripcion) VALUES(:rif,:nombre,:direccion,:descripcion)";
 
         $strExec = $this->conex->prepare($sql);
         $strExec->bindParam(":rif", $this->rif);
         $strExec->bindParam(":nombre", $this->nombre);
         $strExec->bindParam(":direccion", $this->direccion);
-        $strExec->bindParam(":telefono", $this->telefono);
-        $strExec->bindParam(":email", $this->email);
         $strExec->bindParam(":descripcion", $this->descripcion);
 
         $resul = $strExec->execute();
@@ -95,6 +93,20 @@ MOSTRAR INFO DE EMPRESA
         }else{
             return $res=0;
         }
+    }
+
+    //VALIDAR REGISTRO
+    public function buscar(){
+        $registro="select count(*) as total from empresa";
+        $resultado= "";
+            $dato=$this->conex->prepare($registro);
+            $resul=$dato->execute();
+            $resultado=$dato->fetch(PDO::FETCH_ASSOC);
+            if($resul){
+                return $resultado;
+            }else{
+                return false;
+            }
     }
 
 }

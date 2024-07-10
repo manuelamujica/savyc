@@ -16,7 +16,6 @@ if(isset($_POST['buscar'])){
         $objUnidad->setTipo($_POST["tipo_medida"]);
         $objUnidad->setPresentacion($_POST["presentacion"]);
         $objUnidad->setCantidad($_POST["cantidad_presentacion"]);
-        //$objUnidad->setStatus($_POST["status"]);
         
         $resul=$objUnidad->getcrearUnidad();
 

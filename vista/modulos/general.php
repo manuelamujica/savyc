@@ -24,7 +24,7 @@
             <div class="card">
             <div class="card-header">
             <!-- Botón para ventana modal -->
-            <button class="btn btn-primary" data-toggle="modal" data-target="#modalregistrarempresa">Registrar Información</button>
+            <button class="btn btn-primary" data-toggle="modal" id="registrar" data-target="#modalregistrarempresa">Registrar Información</button>
             </div>
             <div class="card-body">
                     <?php foreach($datos as $dato): ?>
@@ -40,8 +40,11 @@
                             </div>
                             <div class="card-footer">
                                 <form method="POST">
-                                    <button name="ajustar" title="Editar" class="btn btn-primary btn-sm editar" value="<?php echo $dato['rif']; ?>">
-                                        <i class="fas fa-pencil-alt"></i>
+                                    <button name="ajustar" class="btn btn-primary btn-sm editar" value="<?php echo $dato['rif']; ?>">
+                                        <i class="fas fa-pencil-alt" title="Editar"></i>
+                                    </button>
+                                    <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato['rif']; ?>">
+                                        <i class="fas fa-trash-alt" title="Eliminar"></i>
                                     </button>
                                 </form>
                             </div>
@@ -59,7 +62,7 @@ MODAL REGISTRAR INFO GENERAL
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Registrar información</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Registrar informacion</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -108,3 +111,17 @@ MODAL REGISTRAR INFO GENERAL
         </div>
     </section>
 </div>
+
+
+<!--     VALIDACIÓN        -->
+<script src="assets/js/general.js"></script>
+        <script>
+                $('#registrar').click(function(e){
+                    var buscar = 'true';
+                    $.post('index.php?pagina=general', {buscar}, function(response){
+                    if(response.total > 0){
+                        alert('Los datos de la empresa ya estan registrados');
+                    }
+                },'json');
+            });
+        </script>

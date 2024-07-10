@@ -104,7 +104,7 @@ require_once "controlador/categorias.php";
         var buscar=$('#nombre').val();
         $.post('index.php?pagina=categorias', {buscar}, function(response){
             if(response != ''){
-                alert('La categoria ya se encuentra registradoa');
+                alert('La categoria ya se encuentra registrada');
             }
         },'json');
     });

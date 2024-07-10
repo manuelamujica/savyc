@@ -53,11 +53,11 @@
                             <table id="proveedores" class="table table-bordered table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Codigo</th>
+                                        <th>Código</th>
                                         <th>Rif</th>
                                         <th>Razon social</th>
                                         <th>Correo electronico</th>
-                                        <th>Direccion</th>
+                                        <th>Dirección</th>
                                         <th>Status</th>
                                         <th>Acción</th>
                                     </tr>
@@ -116,27 +116,27 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="rif">Rif</label>
-                                        <input type="text" class="form-control" id="rif" name="rif" required>
+                                        <input type="text" class="form-control" id="rif" name="rif" >
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="razon_social">Razon Social</label>
-                                        <input type="text" class="form-control" id="razon_social" name="razon_social" required>
+                                        <input type="text" class="form-control" id="razon_social" name="razon_social" >
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="email">Correo Electronico:</label>
-                                        <input type="email" class="form-control" id="email" name="correo" required>
+                                        <label for="email">Correo Electrónico:</label>
+                                        <input type="email" class="form-control" id="email" name="correo" >
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="direccion">Direccion:</label>
-                                        <input type="text" class="form-control" id="direccion" name="direccion" required>
+                                        <label for="direccion">Dirección:</label>
+                                        <input type="text" class="form-control" id="direccion" name="direccion" >
                                     </div>
                                 </div>
                             </div>

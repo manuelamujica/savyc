@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-07-2024 a las 08:19:42
+-- Tiempo de generación: 10-07-2024 a las 06:02:12
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -76,7 +76,11 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`cod_categoria`, `nombre`, `status`) VALUES
-(1, 'Charcutería', 0);
+(1, 'Charcutería', 0),
+(2, 'Víveres', 1),
+(3, 'Caramelos', 1),
+(4, 'Embutidos', 1),
+(5, 'Víveres', 1);
 
 -- --------------------------------------------------------
 
@@ -100,7 +104,9 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`cod_cliente`, `nombre`, `apellido`, `cedula_rif`, `telefono`, `email`, `direccion`, `status`) VALUES
-(1, 'Manuela', 'Mujica', '28516209', '04265507191', 'manuelaalejandra.mujica@gmail.com', 'Barquisimeto', 0);
+(1, 'Manuela', 'Mujica', '28516209', '04265507191', 'manuelaalejandra.mujica@gmail.com', 'Barquisimeto', 0),
+(2, 'daniel', 'rojas', '26779660', '04145389780', 'drojas@estudiante.unexpo.edu.ve', 'barquisimeto', 1),
+(3, 'manuela', 'mujica', '26779661', '04145389780', 'mmujica001@gmail.com', 'a', 1);
 
 -- --------------------------------------------------------
 
@@ -239,7 +245,10 @@ CREATE TABLE `divisas` (
 
 INSERT INTO `divisas` (`cod_divisa`, `nombre`, `abreviatura`, `status`) VALUES
 (1, 'Dólares', 'USD', 0),
-(2, 'Euros', 'EU', 0);
+(2, 'Euros', 'EU', 0),
+(3, 'Pesos colombianos', 'COP', 1),
+(4, 'libras', 'lb', 1),
+(5, 'yum', 'ym', 1);
 
 -- --------------------------------------------------------
 
@@ -254,7 +263,7 @@ CREATE TABLE `empresa` (
   `telefono` varchar(12) NOT NULL,
   `email` varchar(70) NOT NULL,
   `descripcion` varchar(100) NOT NULL,
-  `logo` blob DEFAULT NULL
+  `logo` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -348,7 +357,9 @@ CREATE TABLE `tipo_pago` (
 --
 
 INSERT INTO `tipo_pago` (`cod_tipo_pago`, `medio_pago`, `status`) VALUES
-(1, 'Efectivo', 0);
+(1, 'Efectivo', 0),
+(2, 'Tarjeta', 1),
+(3, 'punto de venta', 1);
 
 -- --------------------------------------------------------
 
@@ -623,13 +634,13 @@ ALTER TABLE `carga`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `cod_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cod_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `cod_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cod_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `compras`
@@ -683,7 +694,7 @@ ALTER TABLE `detalle_ventas`
 -- AUTO_INCREMENT de la tabla `divisas`
 --
 ALTER TABLE `divisas`
-  MODIFY `cod_divisa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cod_divisa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
@@ -713,7 +724,7 @@ ALTER TABLE `prov_representantes`
 -- AUTO_INCREMENT de la tabla `tipo_pago`
 --
 ALTER TABLE `tipo_pago`
-  MODIFY `cod_tipo_pago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cod_tipo_pago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_usuario`
