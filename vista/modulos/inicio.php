@@ -35,7 +35,7 @@
         </div>
         </div>
         <div class="card-body">
-        Sistema para la comerzialización de productos
+        Sistema para la comercialización de productos
         </div>
         <!-- /.card-body -->
         </div>

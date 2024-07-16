@@ -9,12 +9,13 @@ if(isset($_POST['buscar'])){
     header('Content-Type: application/json');
     echo json_encode($result);
     exit;
+
 }else if(isset($_POST["guardar"])){
     if(!empty($_POST["rol"])){
+
         if(!$objRol->buscar($_POST['rol'])){
         #Instanciar los setter
         $objRol->setRol($_POST["rol"]);
-        
         $resul=$objRol->getcrearRol();
 
         if($resul == 1){

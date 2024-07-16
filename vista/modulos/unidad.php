@@ -28,6 +28,7 @@
             </div>
             <div class="card-body">
                 <!-- MOSTRAR EL REGISTRO DE UNIDADES DE MEDIDA -->
+            <div class="table-responsive">
             <table id="unidad" class="table table-bordered table-striped">
                 <thead>
                         <tr>
@@ -36,6 +37,7 @@
                             <th>Presentación</th>
                             <th>Cantidad de la presentación</th>
                             <th>Status</th>
+                            <th>Acciones</th>
                         </tr>
                 </thead>
                 <tbody>
@@ -63,6 +65,7 @@
                     </tr>
                     <?php } ?>
                 </tbody>
+            </div>
             </table>
         </div>
     </div>
@@ -91,12 +94,12 @@ MODAL REGISTRAR Unidades de medida
                             <!--   PRESENTACIÓN      -->
                             <div class="form-group">
                                 <label for="presentacion">Presentación</label>
-                                <input type="text" class="form-control" name="presentacion" required>
+                                <input type="text" class="form-control" id="presentacion" name="presentacion" required>
                             </div>
                             <!--   CANTIDAD DE PRESENTACIÓN      -->
                             <div class="form-group">
                                 <label for="cantidad_presentacion">Cantidad en la presentación</label>
-                                <input type="text" class="form-control" id="presentacion" name="cantidad_presentacion" required>
+                                <input type="text" class="form-control"  name="cantidad_presentacion" required>
                             </div>
                         </div>
                         <div class="modal-footer justify-content-between">

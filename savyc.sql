@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-07-2024 a las 06:02:12
+-- Tiempo de generación: 10-07-2024 a las 08:11:55
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -71,17 +71,6 @@ CREATE TABLE `categorias` (
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
---
--- Volcado de datos para la tabla `categorias`
---
-
-INSERT INTO `categorias` (`cod_categoria`, `nombre`, `status`) VALUES
-(1, 'Charcutería', 0),
-(2, 'Víveres', 1),
-(3, 'Caramelos', 1),
-(4, 'Embutidos', 1),
-(5, 'Víveres', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -98,15 +87,6 @@ CREATE TABLE `clientes` (
   `direccion` varchar(200) DEFAULT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `clientes`
---
-
-INSERT INTO `clientes` (`cod_cliente`, `nombre`, `apellido`, `cedula_rif`, `telefono`, `email`, `direccion`, `status`) VALUES
-(1, 'Manuela', 'Mujica', '28516209', '04265507191', 'manuelaalejandra.mujica@gmail.com', 'Barquisimeto', 0),
-(2, 'daniel', 'rojas', '26779660', '04145389780', 'drojas@estudiante.unexpo.edu.ve', 'barquisimeto', 1),
-(3, 'manuela', 'mujica', '26779661', '04145389780', 'mmujica001@gmail.com', 'a', 1);
 
 -- --------------------------------------------------------
 
@@ -239,17 +219,6 @@ CREATE TABLE `divisas` (
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
---
--- Volcado de datos para la tabla `divisas`
---
-
-INSERT INTO `divisas` (`cod_divisa`, `nombre`, `abreviatura`, `status`) VALUES
-(1, 'Dólares', 'USD', 0),
-(2, 'Euros', 'EU', 0),
-(3, 'Pesos colombianos', 'COP', 1),
-(4, 'libras', 'lb', 1),
-(5, 'yum', 'ym', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -265,13 +234,6 @@ CREATE TABLE `empresa` (
   `descripcion` varchar(100) NOT NULL,
   `logo` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `empresa`
---
-
-INSERT INTO `empresa` (`rif`, `nombre`, `direccion`, `telefono`, `email`, `descripcion`, `logo`) VALUES
-('J28516209', 'Quesera y Charcuteria Don Pedro', 'Barquisimeto', '04265507191', 'queseradonpedro@gmail.com', 'Quesera y Charcuteria ', NULL);
 
 -- --------------------------------------------------------
 
@@ -317,13 +279,6 @@ CREATE TABLE `proveedores` (
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
---
--- Volcado de datos para la tabla `proveedores`
---
-
-INSERT INTO `proveedores` (`cod_prov`, `rif`, `razon_social`, `email`, `direccion`, `status`) VALUES
-(1, 'J28516209', 'Purolomo', 'hola@gmail.com', 'Barquisimeto', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -352,15 +307,6 @@ CREATE TABLE `tipo_pago` (
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
---
--- Volcado de datos para la tabla `tipo_pago`
---
-
-INSERT INTO `tipo_pago` (`cod_tipo_pago`, `medio_pago`, `status`) VALUES
-(1, 'Efectivo', 0),
-(2, 'Tarjeta', 1),
-(3, 'punto de venta', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -372,13 +318,6 @@ CREATE TABLE `tipo_usuario` (
   `rol` varchar(50) NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `tipo_usuario`
---
-
-INSERT INTO `tipo_usuario` (`cod_tipo_usuario`, `rol`, `status`) VALUES
-(1, 'Administrador', 1);
 
 -- --------------------------------------------------------
 
@@ -406,13 +345,6 @@ CREATE TABLE `unidades_medida` (
   `cantidad_presentacion` float DEFAULT NULL,
   `status` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `unidades_medida`
---
-
-INSERT INTO `unidades_medida` (`cod_unidad`, `tipo_medida`, `presentacion`, `cantidad_presentacion`, `status`) VALUES
-(1, 'Kilo', '1', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -634,13 +566,13 @@ ALTER TABLE `carga`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `cod_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `cod_categoria` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `cod_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cod_cliente` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `compras`
@@ -694,7 +626,7 @@ ALTER TABLE `detalle_ventas`
 -- AUTO_INCREMENT de la tabla `divisas`
 --
 ALTER TABLE `divisas`
-  MODIFY `cod_divisa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `cod_divisa` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
@@ -712,7 +644,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `cod_prov` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cod_prov` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `prov_representantes`
@@ -724,13 +656,13 @@ ALTER TABLE `prov_representantes`
 -- AUTO_INCREMENT de la tabla `tipo_pago`
 --
 ALTER TABLE `tipo_pago`
-  MODIFY `cod_tipo_pago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cod_tipo_pago` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_usuario`
 --
 ALTER TABLE `tipo_usuario`
-  MODIFY `cod_tipo_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cod_tipo_usuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tlf_proveedores`
@@ -742,7 +674,7 @@ ALTER TABLE `tlf_proveedores`
 -- AUTO_INCREMENT de la tabla `unidades_medida`
 --
 ALTER TABLE `unidades_medida`
-  MODIFY `cod_unidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cod_unidad` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

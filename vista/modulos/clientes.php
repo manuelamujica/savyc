@@ -30,6 +30,7 @@
             <div class="card-body">
 
             <!-- TABLA -->
+            <div class="table-responsive">
             <table id="clientes" class="table table-bordered table-striped table-hover">
                 <thead>
                         <tr>
@@ -72,6 +73,7 @@
                         <?php } ?>
                 </tbody>
             </table>
+            </div>
             <!-- /TABLA -->
         </div>
     </div>

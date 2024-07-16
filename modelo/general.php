@@ -58,12 +58,14 @@ REGISTRAR INFO DE EMPRESA
 ================================*/
     private function registrar(){
 
-        $sql = "INSERT INTO empresa(rif,nombre,direccion,descripcion) VALUES(:rif,:nombre,:direccion,:descripcion)";
+        $sql = "INSERT INTO empresa(rif,nombre,direccion,telefono,email,descripcion) VALUES(:rif,:nombre,:direccion,:telefono,:email,:descripcion)";
 
         $strExec = $this->conex->prepare($sql);
         $strExec->bindParam(":rif", $this->rif);
         $strExec->bindParam(":nombre", $this->nombre);
         $strExec->bindParam(":direccion", $this->direccion);
+        $strExec->bindParam(":telefono", $this->telefono);
+        $strExec->bindParam(":email", $this->email);
         $strExec->bindParam(":descripcion", $this->descripcion);
 
         $resul = $strExec->execute();
@@ -103,10 +105,12 @@ MOSTRAR INFO DE EMPRESA
             $resul=$dato->execute();
             $resultado=$dato->fetch(PDO::FETCH_ASSOC);
             if($resul){
+                if($resultado['total']>0){
                 return $resultado;
             }else{
                 return false;
             }
+        }
     }
 
 }

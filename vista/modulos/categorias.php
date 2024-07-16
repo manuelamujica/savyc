@@ -30,6 +30,7 @@ require_once "controlador/categorias.php";
                             <button class="btn btn-primary" data-toggle="modal" data-target="#modalRegistrarCategoria">Registrar categoría</button>
                         </div>
                         <div class="card-body">
+                        <div class="table-responsive">
                             <table id="categorias" class="table table-bordered table-striped table-hover">
                                 <thead>
                                     <tr>
@@ -64,6 +65,7 @@ require_once "controlador/categorias.php";
                                     <?php } ?>
                                 </tbody>
                             </table>
+                        </div>
                         </div>
                     </div>
 <!-- =============================

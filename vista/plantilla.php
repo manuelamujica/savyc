@@ -43,7 +43,7 @@ PLUGINGS DE CSS
   include "modulos/sidebar.php";
 
   if(isset ($_GET["ruta"])){
-    if($_GET["ruta"] == "inicio" || $_GET["ruta"] == "categorias" || $_GET["ruta"] == "tpago" || $_GET["ruta"] == "divisa" || $_GET["ruta"] == "proveedores" || $_GET["ruta"] == "unidad" || $_GET["ruta"] == "general" || $_GET["ruta"] == "clientes" || $_GET["ruta"] == "productos" || $_GET["ruta"] == "venta" || $_GET["ruta"] == "roles"){
+    if($_GET["ruta"] == "inicio" || $_GET["ruta"] == "categorias" || $_GET["ruta"] == "tpago" || $_GET["ruta"] == "divisa" || $_GET["ruta"] == "proveedores" || $_GET["ruta"] == "unidad" || $_GET["ruta"] == "general" || $_GET["ruta"] == "clientes" || $_GET["ruta"] == "roles"){
       include "modulos/". $_GET["ruta"] . ".php";
     } else {
       include "modulos/construccion.php";

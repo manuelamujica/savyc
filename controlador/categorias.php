@@ -24,9 +24,6 @@ if(isset($_POST['buscar'])){
                     echo "<script>alert('Registrado con exito');
                     location = '?pagina=categorias' </script>";
             }
-        }else{
-            echo "<script>alert('La categoria ya existe');
-            location = '?pagina=categorias' </script>";
         }
     }else{
     echo "<script>alert('No se permiten campos vacios');
@@ -36,5 +33,6 @@ if(isset($_POST['buscar'])){
 
 
 $registro = $objCategoria->mostrar();
+
 $_GET['ruta'] = 'categorias';
 require_once 'plantilla.php';

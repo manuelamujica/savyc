@@ -32,12 +32,13 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
+                            <div class="table-responsive">
                                 <table id="paymentTypesTable" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
                                             <th>Nombre</th>
-                                            <th>Simbolo/Abreviatura</th>
+                                            <th>Símbolo/Abreviatura</th>
                                             <th>Status</th>
                                             <th>Acciones</th>
                                         </tr>
@@ -73,6 +74,7 @@
                                         <?php } ?>
                                     </tbody>
                                 </table>
+                            </div>
                             </div>
                             <!-- /.card-body -->
                         </div>

@@ -27,7 +27,7 @@
             <button class="btn btn-primary" data-toggle="modal" data-target="#modalregistrarroles">Registrar Rol</button>
             </div>
             <div class="card-body">
-
+            <div class="table-responsive">
             <table id="categorias" class="table table-bordered table-striped">
                 <thead>
                         <tr>
@@ -62,9 +62,9 @@
                         </td>
                     </tr>
                     <?php } ?>                    
-                    
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
 
@@ -87,7 +87,7 @@ MODAL REGISTRAR ROLES
                             <!--   NOMBRE DEL ROL     -->
                             <div class="form-group">
                                 <label for="rol">Rol</label>
-                                <input type="text" class="form-control" name="rol" required>
+                                <input type="text" class="form-control" id="rol" name="rol" required>
                             </div>
                         </div>
                         <div class="modal-footer">

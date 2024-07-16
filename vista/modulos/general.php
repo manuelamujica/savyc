@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
         <div class="col-sm-6">
-            <h1>Ajustar informacion de la empresa</h1>
+            <h1>Ajustar información de la empresa</h1>
         </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -36,6 +36,8 @@
                                 <p><b>Rif: </b> <?php echo $dato['rif']; ?></p>
                                 <p><b>Razón Social: </b><?php echo $dato['nombre']; ?></p>
                                 <p><b>Dirección: </b><?php echo $dato['direccion']; ?></p>
+                                <p><b>Teléfono: </b><?php echo $dato['telefono']; ?></p>
+                                <p><b>Email: </b><?php echo $dato['email']; ?></p>
                                 <p><b>Descripción: </b><?php echo $dato['descripcion']; ?></p>
                             </div>
                             <div class="card-footer">
@@ -43,9 +45,7 @@
                                     <button name="ajustar" class="btn btn-primary btn-sm editar" value="<?php echo $dato['rif']; ?>">
                                         <i class="fas fa-pencil-alt" title="Editar"></i>
                                     </button>
-                                    <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato['rif']; ?>">
-                                        <i class="fas fa-trash-alt" title="Eliminar"></i>
-                                    </button>
+
                                 </form>
                             </div>
                         </div>

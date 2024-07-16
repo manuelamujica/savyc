@@ -50,6 +50,7 @@
                             <br>
             
             <!-- Tabla de productos -->
+            <div class="table-responsive">
             <table id="producto" class="table table-bordered table-striped">
                 <thead>
                         <tr>
@@ -120,6 +121,7 @@
                     </div>  
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
 </section>

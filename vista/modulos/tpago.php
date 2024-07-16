@@ -31,6 +31,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
+                            <div class="table-responsive">
                                 <table id="paymentTypesTable" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
@@ -71,6 +72,8 @@
                                         <?php } ?>
                                     </tbody>
                                 </table>
+                            </div>
+                            <!-- /.reponsive -->
                             </div>
                             <!-- /.card-body -->
                         </div>

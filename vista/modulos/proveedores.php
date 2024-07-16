@@ -50,6 +50,7 @@
                             </div>
                             <br>
                             <!-- Tabla de proveedores -->
+                            <div class="table-responsive">
                             <table id="proveedores" class="table table-bordered table-striped table-hover">
                                 <thead>
                                     <tr>
@@ -59,6 +60,7 @@
                                         <th>Correo electronico</th>
                                         <th>Dirección</th>
                                         <th>Status</th>
+                                        <th>Representante</th>
                                         <th>Acción</th>
                                     </tr>
                                 </thead>
@@ -77,16 +79,21 @@
                                                     <span class="badge bg-danger">Inactivo</span>
                                                 <?php endif;?>
                                             </td>
+                                            <td class="text-center">
+                                                <form method="post">
+                                                <button type="button" name="mas" class="btn btn-primary btn-sm mas" value="<?php echo $dato["cod_prov"] ?>" title="Registrar representante" data-toggle="modal" data-target="#modalregistrarrepre"><i class="fas fa-plus"></i></button>
+                                            </td>
                                             <td>
                                                 <form method="post">
-                                                    <button name="editar" class="btn btn-primary btn-sm editar" value="<?php echo $dato["nombre"] ?>" title="Editar"><i class="fas fa-pencil-alt"></i></button>
-                                                    <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato["nombre"] ?>" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
+                                                    <button name="editar" class="btn btn-primary btn-sm editar" value="<?php echo $dato["cod_prov"] ?>" title="Editar"><i class="fas fa-pencil-alt"></i></button>
+                                                    <button name="eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato["cod_prov"] ?>" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -116,13 +123,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="rif">Rif</label>
-                                        <input type="text" class="form-control" id="rif" name="rif" >
+                                        <input type="text" class="form-control" id="rif" name="rif" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="razon_social">Razon Social</label>
-                                        <input type="text" class="form-control" id="razon_social" name="razon_social" >
+                                        <input type="text" class="form-control" id="razon_social" name="razon_social" required>
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +137,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="email">Correo Electrónico:</label>
-                                        <input type="email" class="form-control" id="email" name="correo" >
+                                        <input type="email" class="form-control" id="email" name="correo" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -140,7 +147,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal-footer">
+                            <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                 <button type="submit" class="btn btn-primary" name="guardar">Guardar</button>
                             </div>
@@ -152,78 +159,29 @@
     </div>
 </div>
 <!-- Fin Modal de registro de proveedor -->
-<script>
-    $('#rif').blur(function (e){
-        var buscar=$('#rif').val();
-        $.post('index.php?pagina=proveedores', {buscar}, function(response){
-        if(response != ''){
-            alert('El proveedor ya se encuentra registrado');
-        }
-        },'json');
-    });
-</script>
 
-<!-- Modal editar proveedor 
-<div class="modal fade" id="editProve" tabindex="-1" role="dialog" aria-labelledby="editProve" aria-hidden="true">
+<!-- Modal de registro de representante del proveedor -->
+<div class="modal fade" id="modalregistrarrepre" tabindex="-1" role="dialog" aria-labelledby="rprovModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Editar proveedor</h5>
+            <div class="modal-header" style="background: #db6a00; color: #ffffff">
+                <h5 class="modal-title" id="rprovModal">Registrar representante</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post">
+                <form id="" method="post">
                     <div class="card card-default">
-                        <div class="card-header">
-                            <h3 class="card-title">Datos del proveedor</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="rif">Rif:</label>
-                                        <input type="text" class="form-control" id="rif" name="rif" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="razon_social">Razon Social:</label>
-                                        <input type="text" class="form-control" id="social" name="razon_social" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="email">Correo Electronico:</label>
-                                        <input type="email" class="form-control" id="email" name="email" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="direccion">Direccion:</label>
-                                        <input type="text" class="form-control" id="direccion" name="direccion" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="status">Status:</label>
-                                        <input type="number" class="form-control" id="status" name="status" required>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-default">
-                        <div class="card-header">
-                            <h3 class="card-title">Datos del Representante</h3>
+                        <div class="card-header" style="background: #E89005; color: #ffffff">
+                            <h3 class="card-title">Información del  representante </h3>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="cedula">Cedula:</label>
-                                        <input type="text" class="form-control" id="cedula" name="cedula" required>
+                                        <input type="text" class="form-control" id="rif" name="cedula" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -242,57 +200,35 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="telefono">Teléfono:</label>
-                                        <input type="text" class="form-control" id="telefono" name="telefono" required>
+                                        <label for="telefono">Telefono:</label>
+                                        <input type="text" class="form-control" id="telefono" name="telefono" >
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="telefono_adicional">Teléfono Adicional:</label>
-                                        <input type="text" class="form-control" id="telefono_adicional" name="telefono_adicional" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="status_representante">Status:</label>
-                                        <input type="number" class="form-control" id="status_representante" name="status_representante" required>
-                                    </div>
-                                </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary" name="guardar">Guardar</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" value="Registrar" name="registrar">Guardar Cambios</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+</div>    
+</section>
 </div>
-Fin Modal editar proveedor -->
+<!-- Fin Modal de registro de representante del proveedor -->
+<script>
+    $('#rif').blur(function (e){
+        var buscar=$('#rif').val();
+        $.post('index.php?pagina=proveedores', {buscar}, function(response){
+        if(response != ''){
+            alert('El proveedor ya se encuentra registrado');
+        }
+        },'json');
+    });
+</script>
 
-<!-- Modal eliminar proveedor 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="background: #f72e2e">
-                <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ¿Desea eliminar este proveedor?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                <button type="button" class="btn btn-danger">Sí</button>
-            </div>
-        </div>
-    </div>
-</div>
-Fin Modal eliminar proveedor -->
+
 
