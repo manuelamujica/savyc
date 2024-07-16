@@ -9,6 +9,7 @@ class General extends Conexion{
     private $telefono;
     private $email;
     private $descripcion;
+    private $logo;
 
     public function __construct(){
         $this->conex = new Conexion();
@@ -58,7 +59,7 @@ REGISTRAR INFO DE EMPRESA
 ================================*/
     private function registrar(){
 
-        $sql = "INSERT INTO empresa(rif,nombre,direccion,telefono,email,descripcion) VALUES(:rif,:nombre,:direccion,:telefono,:email,:descripcion)";
+        $sql = "INSERT INTO empresa(rif,nombre,direccion,telefono,email,descripcion,logo) VALUES(:rif,:nombre,:direccion,:telefono,:email,:descripcion,:logo)";
 
         $strExec = $this->conex->prepare($sql);
         $strExec->bindParam(":rif", $this->rif);
@@ -67,6 +68,7 @@ REGISTRAR INFO DE EMPRESA
         $strExec->bindParam(":telefono", $this->telefono);
         $strExec->bindParam(":email", $this->email);
         $strExec->bindParam(":descripcion", $this->descripcion);
+        $strExec->bindParam(":logo", $this->logo);
 
         $resul = $strExec->execute();
 
@@ -113,4 +115,12 @@ MOSTRAR INFO DE EMPRESA
         }
     }
 
+    public function subirlogo($valor){
+        $nombre_logo = $_FILES['logo']['name'];
+        $tmp_logo = $_FILES['logo']['tmp_name'];
+        $ruta_logo = "vista/dist/img/".$nombre_logo;
+        move_uploaded_file($tmp_logo, $ruta_logo);
+        $this->logo = $ruta_logo; // Guardar la ruta del archivo
+        //el archivo de imagen se guardará en la carpeta logos con move_uploaded_file
+    }
 }

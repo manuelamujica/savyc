@@ -39,6 +39,7 @@
                                 <p><b>Teléfono: </b><?php echo $dato['telefono']; ?></p>
                                 <p><b>Email: </b><?php echo $dato['email']; ?></p>
                                 <p><b>Descripción: </b><?php echo $dato['descripcion']; ?></p>
+                                <p><b>Logo: </b><img src="<?php echo $dato['logo']; ?>" alt="quesera don pedro"></p>
                             </div>
                             <div class="card-footer">
                                 <form method="POST">
@@ -69,7 +70,7 @@ MODAL REGISTRAR INFO GENERAL
                     </div>
 
                     <div class="modal-body">
-                        <form id="formGeneral" method="post">
+                        <form id="formGeneral" method="post" enctype="multipart/form-data">
                             <!--   RIF DE LA empresa     -->
                             <div class="form-group">
                                 <label for="rif">Rif de la empresa</label>
@@ -99,6 +100,10 @@ MODAL REGISTRAR INFO GENERAL
                             <div class="form-group">
                                 <label for="descripcion">Descripción</label>
                                 <input type="text" class="form-control" name="descripcion" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="logo">Ingrese el logo</label>
+                                <input type="file" class="form-control" name="logo" id="logo" required>
                             </div>
                         </div>
                         <div class="modal-footer justify-content-between">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-07-2024 a las 08:11:55
+-- Tiempo de generación: 16-07-2024 a las 08:22:11
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -43,7 +43,7 @@ CREATE TABLE `cambio_divisa` (
 
 CREATE TABLE `cambio_ventas` (
   `cod_cambio` int(11) NOT NULL,
-  `cod_venta` int(11) DEFAULT NULL
+  `cod_venta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -100,7 +100,7 @@ CREATE TABLE `compras` (
   `subtotal` decimal(10,2) NOT NULL,
   `total` decimal(10,2) NOT NULL,
   `impuesto_total` decimal(10,2) NOT NULL,
-  `fecha` date NOT NULL,
+  `fecha` datetime NOT NULL,
   `descuento` int(11) DEFAULT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
@@ -157,7 +157,6 @@ CREATE TABLE `detalle_descarga` (
   `cod_det_descarga` int(11) NOT NULL,
   `cod_detallep` int(11) NOT NULL,
   `cod_descarga` int(11) NOT NULL,
-  `fecha` datetime NOT NULL,
   `cantidad` float NOT NULL,
   `descripcion` varchar(100) NOT NULL,
   `status` int(11) NOT NULL
@@ -171,10 +170,10 @@ CREATE TABLE `detalle_descarga` (
 
 CREATE TABLE `detalle_pagos` (
   `cod_detallepago` int(11) NOT NULL,
-  `cod_pago` int(11) DEFAULT NULL,
-  `cod_tipo_pago` int(11) DEFAULT NULL,
-  `monto` decimal(10,2) DEFAULT NULL,
-  `status` int(11) DEFAULT NULL
+  `cod_pago` int(11) NOT NULL,
+  `cod_tipo_pago` int(11) NOT NULL,
+  `monto` decimal(10,2) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -341,9 +340,9 @@ CREATE TABLE `tlf_proveedores` (
 CREATE TABLE `unidades_medida` (
   `cod_unidad` int(11) NOT NULL,
   `tipo_medida` char(10) NOT NULL,
-  `presentacion` varchar(20) DEFAULT NULL,
+  `presentacion` varchar(60) DEFAULT NULL,
   `cantidad_presentacion` float DEFAULT NULL,
-  `status` int(11) DEFAULT NULL
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -371,8 +370,8 @@ CREATE TABLE `ventas` (
   `cod_venta` int(11) NOT NULL,
   `cod_cliente` int(11) NOT NULL,
   `total` decimal(10,2) NOT NULL,
-  `fecha` date NOT NULL,
-  `descuento` int(11) NOT NULL,
+  `fecha` datetime NOT NULL,
+  `descuento` int(11) DEFAULT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
