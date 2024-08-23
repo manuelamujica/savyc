@@ -33,6 +33,37 @@ if(isset($_POST['buscar'])){
                 }
             }
     }
+}else if(isset($_POST['actualizar'])){
+    if(!empty($_POST["nombre"]) && !empty($_POST["apellido"]) && !empty($_POST["cedula_rif"]) && !empty($_POST["telefono"]) && !empty($_POST["direccion"]) && !empty(["email"])){
+
+        $objCliente->setNombre($_POST["nombre"]);
+        $objCliente->setApellido($_POST["apellido"]);
+        $objCliente->setCedula($_POST["cedula_rif"]);
+        $objCliente->setTelefono($_POST["telefono"]);
+        $objCliente->setEmail($_POST["email"]);
+        $objCliente->setDireccion($_POST["direccion"]);
+        $objCliente->setstatus($_POST["status"]);
+
+        $result = $objCliente->actualizar($_POST["codigo"]);
+            if($result == 1){
+                echo "<script>alert('se ha modificado con exito');
+                location = '?pagina=clientes' </script>";
+            }else{
+                echo "<script>alert('No se pudo modificar');
+                location = '?pagina=clientes' </script>";
+                }
+            }
+}else if(isset($_POST['borrar'])){
+    if(!empty($_POST['clienteCodigo'])){
+    $result = $objCliente->eliminar($_POST["clienteCodigo"]);
+        if($result == 1){
+            echo "<script>alert('se ha eliminado con exito');
+            location = '?pagina=clientes' </script>";
+        }else{
+            echo "<script>alert('No se pudo eliminar');
+            location = '?pagina=clientes' </script>";
+        }
+    }
 }
 
 $registro = $objCliente->consultar();

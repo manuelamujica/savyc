@@ -45,10 +45,8 @@
                                     </thead>
                                     <tbody>
                                         <!-- Aquí se llenará la tabla dinámicamente con PHP -->
-                                        <?php 
-                                    
-                                        foreach ($consulta as $divisa) {
-                                        ?>
+                                        <?php foreach ($consulta as $divisa) { ?>
+                                        <?php if ($divisa['status'] != 2): ?>
                                         <tr>
                                             <td><?php echo $divisa['cod_divisa']?></td>
                                             <td><?php echo $divisa['nombre']?></td>
@@ -61,16 +59,22 @@
                                                 <?php endif;?>
                                             </td>
                                             <td>
-                                            <form method="POST">
-                                            <button name="modificar" title="Editar" class="btn btn-primary btn-sm editar" value="<?php echo $dato['cod_divisa']; ?>">
-                                                <i class="fas fa-pencil-alt"></i>
+                                            <button name="editar" title="Editar" class="btn btn-primary btn-sm editar" data-toggle="modal" data-target="#editModal" 
+                                            data-codigo="<?php echo $divisa["cod_divisa"]; ?>" 
+                                            data-nombre="<?php echo $divisa["nombre"]; ?>" 
+                                            data-abreviatura="<?php echo $divisa["abreviatura"]; ?>"
+                                            data-status="<?php echo $divisa["status"]; ?>" >
+                                            <i class="fas fa-pencil-alt"></i>
                                             </button>
-                                            <button name="eliminar" title="Eliminar" class="btn btn-danger btn-sm eliminar" value="<?php echo $dato['cod_divisa']; ?>">
+                                            <button name="eliminar" title="Eliminar" class="btn btn-danger btn-sm eliminar" data-toggle="modal" data-target="#eliminardivisa"
+                                            data-codigo="<?php echo $divisa["cod_divisa"]; ?>" 
+                                            data-nombre="<?php echo $divisa["nombre"]; ?>" >
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                             </form>
                                             </td>
                                         </tr>
+                                        <?php endif; ?>
                                         <?php } ?>
                                     </tbody>
                                 </table>
@@ -119,6 +123,78 @@
             <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
+
+<!-- =======================
+MODAL EDITAR DIVISA
+============================= -->
+
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Editar Información</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm" method="post">
+                    <div class="form-group">
+                        <label for="codigo">Código</label>
+                        <input type="text" class="form-control" id="codigo" name="codigo" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre de la Divisa</label>
+                        <input type="text" class="form-control" id="nombre1" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="abreviatura">Símbolo o Abreviatura</label>
+                        <input type="text" class="form-control" id="abreviatura" name="abreviatura" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select class="form-control" id="status" name="status">
+                            <option value="1">Activo</option>
+                            <option value="0">Inactivo</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="submit" form="editForm" class="btn btn-primary" name="actualizar">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =======================
+MODAL CONFIRMAR ELIMINAR 
+============================= -->
+
+    <div class="modal fade" id="eliminardivisa" tabindex="-1" aria-labelledby="eliminardivisaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eliminardivisaLabel">Confirmar Eliminación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <form id="elimodal" method="post"> 
+                    <p>¿Está seguro que desea eliminar a <span id="divisaNombre"></span>?</p>
+                    <input type="hidden" id="divisaCodigo" name="divisaCodigo"> 
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" form="elimodal" class="btn btn-danger" id="confirmDelete" name="borrar">Eliminar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
 <script>
     $('#nombre').blur(function (e){
         var buscar=$('#nombre').val();
@@ -128,4 +204,39 @@
         }
         },'json');
     });
+
+    $('#nombre1').blur(function (e){
+        var buscar=$('#nombre1').val();
+        $.post('index.php?pagina=divisa', {buscar}, function(response){
+        if(response != ''){
+            alert('La divisa ya se encuentra registrada');
+        }
+        },'json');
+    });
+
+    $('#editModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var codigo = button.data('codigo');
+            var nombre = button.data('nombre');
+            var abreviatura = button.data('abreviatura');
+            var status = button.data('status');
+
+            // Modal
+            var modal = $(this);
+            modal.find('.modal-body #codigo').val(codigo);
+            modal.find('.modal-body #nombre1').val(nombre);
+            modal.find('.modal-body #abreviatura').val(abreviatura);
+            modal.find('.modal-body #status').val(status);
+        });
+
+        $('#eliminardivisa').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); 
+        var nombre = button.data('nombre');
+        var codigo = button.data('codigo');
+
+        var modal = $(this);
+        modal.find('#divisaNombre').text(nombre);
+        modal.find('.modal-body #divisaCodigo').val(codigo);
+    });
+
 </script>
